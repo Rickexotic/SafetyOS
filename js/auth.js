@@ -1,14 +1,8 @@
 const msalConfig = {
-
     auth: {
-
         clientId: CONFIG.clientId,
-
-       authority:
-    `https://login.microsoftonline.com/${CONFIG.tenantId}`,
-
-        redirectUri:
-            CONFIG.redirectUri
+        authority: `https://login.microsoftonline.com/${CONFIG.tenantId}`,
+        redirectUri: CONFIG.redirectUri
     }
 };
 
@@ -23,9 +17,13 @@ async function signIn() {
 
         const loginResponse =
             await msalInstance.loginPopup({
-
                 scopes: [
-                            activeAccount =
+                    "User.Read",
+                    "Sites.ReadWrite.All"
+                ]
+            });
+
+        activeAccount =
             loginResponse.account;
 
         document.getElementById("userInfo")
