@@ -56,7 +56,6 @@ function validateForm(){
 
     return true;
 }
-
 async function submitIncident(){
 
     try{
@@ -81,12 +80,16 @@ async function submitIncident(){
 
             fields:{
 
-                Title:
-                    "Incident",
+                Title: "Incident",
 
                 IncidentID:
                     "INC-" +
-                    Date.now(),
+                    new Date().getFullYear() +
+                    "-" +
+                    Math.floor(Math.random() * 100000),
+
+                DateReported:
+                    new Date().toISOString(),
 
                 Site:
                     document.getElementById("site").value,
@@ -101,33 +104,22 @@ async function submitIncident(){
                     document.getElementById("description").value,
 
                 Status:
-                    "Reported",
-
-                DateReported:
-                    new Date()
-                    .toISOString()
+                    "Reported"
             }
         };
 
         const response =
             await fetch(
-
                 `https://graph.microsoft.com/v1.0/sites/${CONFIG.siteId}/lists/${CONFIG.incidentsListId}/items`,
-
                 {
-                    method:"POST",
+                    method: "POST",
 
-                    headers:{
-
-                        Authorization:
-                            `Bearer ${token}`,
-
-                        "Content-Type":
-                            "application/json"
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
                     },
 
-                    body:
-                        JSON.stringify(body)
+                    body: JSON.stringify(body)
                 }
             );
 
@@ -152,6 +144,7 @@ async function submitIncident(){
                 "Unable to create incident."
             );
         }
+
     }
     catch(ex){
 
@@ -161,4 +154,5 @@ async function submitIncident(){
             "Unexpected error occurred."
         );
     }
+}
 }
