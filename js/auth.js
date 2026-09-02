@@ -6,13 +6,11 @@ const msalConfig = {
     }
 };
 
-const msalInstance =
-    new msal.PublicClientApplication(msalConfig);
+const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 let activeAccount = null;
 
 async function signIn() {
-
     try {
 
         const loginResponse =
@@ -23,15 +21,12 @@ async function signIn() {
                 ]
             });
 
-        activeAccount =
-            loginResponse.account;
+        activeAccount = loginResponse.account;
 
-        document.getElementById("userInfo")
-            .innerText =
+        document.getElementById("userInfo").innerText =
             activeAccount.username;
 
-    }
-    catch (error) {
+    } catch (error) {
 
         console.error(error);
 
