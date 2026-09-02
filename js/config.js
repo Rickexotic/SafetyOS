@@ -3,5 +3,5 @@ const CONFIG = {
     clientId: "d17656ff-7746-492d-9e5c-4644cf1f3ea5",
     siteId: "f2fd451e-67f7-44d4-8aae-a5fcdd33dc3b",
     incidentsListId: "f2fd451e-67f7-44d4-8aae-a5fcdd33dc3b",
-    redirectUri: "https://rickexotic.github.io"
+    redirectUri: "https://rickexotic.github.io/SafetyOS"
 };
