@@ -17,20 +17,15 @@ const msalInstance =
 
 let activeAccount = null;
 
-async function signIn(){
+async function signIn() {
 
-    try{
+    try {
 
         const loginResponse =
             await msalInstance.loginPopup({
 
-                scopes:[
-                    "User.Read",
-                    "Sites.ReadWrite.All"
-                ]
-            });
-
-        activeAccount =
+                scopes: [
+                            activeAccount =
             loginResponse.account;
 
         document.getElementById("userInfo")
@@ -38,11 +33,10 @@ async function signIn(){
             activeAccount.username;
 
     }
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
         alert("Login failed");
     }
 }
-
