@@ -4,8 +4,8 @@ const msalConfig = {
 
         clientId: CONFIG.clientId,
 
-        authority:
-            `https://login.microsoftonline.com/${CONFIG.tenantId}`,
+       authority:
+    `https://login.microsoftonline.com/${CONFIG.tenantId}`,
 
         redirectUri:
             CONFIG.redirectUri
