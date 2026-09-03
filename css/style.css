@@ -1,0 +1,18 @@
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f5f6f8;
+}
+
+.card{
+    border:none;
+    border-radius:12px;
+}
+
+.card-header{
+    border-radius:12px 12px 0 0 !important;
+}
+
+.form-control,
+.form-select{
+    border-radius:8px;
+}
