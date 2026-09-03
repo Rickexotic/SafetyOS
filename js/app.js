@@ -42,11 +42,17 @@ function validateForm(){
     const description =
         document.getElementById("description").value;
 
-    if(!site ||
-       !type ||
-       !severity ||
-       !description){
+    console.log("Site:", site);
+    console.log("Type:", type);
+    console.log("Severity:", severity);
+    console.log("Description:", description);
 
+    if(
+        !site ||
+        !type ||
+        !severity ||
+        !description
+    ){
         showError(
             "Please complete all required fields."
         );
