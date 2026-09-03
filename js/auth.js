@@ -28,8 +28,11 @@ async function signIn() {
 
     } catch (error) {
 
-        console.error(error);
+    console.error("MSAL ERROR:", error);
 
-        alert("Login failed");
-    }
+    alert(
+        "Login failed: " +
+        error.message
+    );
+}
 }
