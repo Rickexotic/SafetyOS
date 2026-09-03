@@ -177,6 +177,5 @@ async function getSiteInfo() {
     const data = await response.json();
 
     console.log(data);
-
-        
     }
+}
