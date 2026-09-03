@@ -122,7 +122,7 @@ async function submitIncident() {
 
         const response =
             await fetch(
-                `https://graph.microsoft.com/v1.0/sites/${CONFIG.siteId}/lists/${CONFIG.incidentsListId}/items`,
+                `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items`,
                 {
                     method: "POST",
 
