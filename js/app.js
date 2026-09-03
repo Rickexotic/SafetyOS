@@ -1,10 +1,9 @@
-function showSuccess(message){
+function showSuccess(message) {
 
     const success =
         document.getElementById("successMessage");
 
-    success.innerText =
-        message;
+    success.innerText = message;
 
     success.classList.remove("d-none");
 
@@ -13,13 +12,12 @@ function showSuccess(message){
         .classList.add("d-none");
 }
 
-function showError(message){
+function showError(message) {
 
     const error =
         document.getElementById("errorMessage");
 
-    error.innerText =
-        message;
+    error.innerText = message;
 
     error.classList.remove("d-none");
 
@@ -28,7 +26,7 @@ function showError(message){
         .classList.add("d-none");
 }
 
-function validateForm(){
+function validateForm() {
 
     const site =
         document.getElementById("site").value;
@@ -47,12 +45,13 @@ function validateForm(){
     console.log("Severity:", severity);
     console.log("Description:", description);
 
-    if(
+    if (
         !site ||
         !type ||
         !severity ||
         !description
-    ){
+    ) {
+
         showError(
             "Please complete all required fields."
         );
@@ -62,11 +61,12 @@ function validateForm(){
 
     return true;
 }
-async function submitIncident(){
 
-    try{
+async function submitIncident() {
 
-        if(!activeAccount){
+    try {
+
+        if (!activeAccount) {
 
             showError(
                 "Please sign in first."
@@ -75,7 +75,7 @@ async function submitIncident(){
             return;
         }
 
-        if(!validateForm()){
+        if (!validateForm()) {
             return;
         }
 
@@ -83,8 +83,7 @@ async function submitIncident(){
             await getAccessToken();
 
         const body = {
-
-            fields:{
+            fields: {
 
                 Title: "Incident",
 
@@ -92,7 +91,9 @@ async function submitIncident(){
                     "INC-" +
                     new Date().getFullYear() +
                     "-" +
-                    Math.floor(Math.random() * 100000),
+                    Math.floor(
+                        Math.random() * 100000
+                    ),
 
                 DateReported:
                     new Date().toISOString(),
@@ -114,6 +115,11 @@ async function submitIncident(){
             }
         };
 
+        console.log(
+            "Payload:",
+            JSON.stringify(body, null, 2)
+        );
+
         const response =
             await fetch(
                 `https://graph.microsoft.com/v1.0/sites/${CONFIG.siteId}/lists/${CONFIG.incidentsListId}/items`,
@@ -129,7 +135,7 @@ async function submitIncident(){
                 }
             );
 
-        if(response.ok){
+        if (response.ok) {
 
             document
                 .getElementById("incidentForm")
@@ -138,43 +144,63 @@ async function submitIncident(){
             showSuccess(
                 "Incident submitted successfully."
             );
-        }
-        else{
+
+        } else {
 
             const error =
-                await response.text();
+                await response.json();
 
-            console.error(error);
+            console.error(
+                "Graph Error:",
+                error
+            );
 
             showError(
-                "Unable to create incident."
+                JSON.stringify(error)
             );
         }
 
-    }
-    catch(ex){
+    } catch (ex) {
 
-        console.error(ex);
+        console.error(
+            "Unexpected Error:",
+            ex
+        );
 
         showError(
-            "Unexpected error occurred." );
+            ex.message
+        );
     }
 }
-        
-async function getSiteInfo() {
 
-    const token = await getAccessToken();
+async function testSiteInfo() {
 
-    const response = await fetch(
-        "https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }
-    );
+    try {
 
-    const data = await response.json();
+        const token =
+            await getAccessToken();
 
-    console.log(data);
+        const response =
+            await fetch(
+                "https://graph.microsoft.com/v1.0/sites/root",
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+        const data =
+            await response.json();
+
+        console.log(
+            "SITE INFO:",
+            data
+        );
+
+    } catch (error) {
+
+        console.error(error);
     }
+}
