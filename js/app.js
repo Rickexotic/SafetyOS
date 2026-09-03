@@ -159,6 +159,24 @@ async function submitIncident(){
         showError(
             "Unexpected error occurred."
         );
+async function getSiteInfo() {
+
+    const token = await getAccessToken();
+
+    const response = await fetch(
+        "https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS",
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+        
     }
 }
 
