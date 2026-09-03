@@ -1,17 +1,22 @@
 const msalConfig = {
     auth: {
         clientId: CONFIG.clientId,
-        authority: `https://login.microsoftonline.com/${CONFIG.tenantId}`,
+        authority: 
+            `https://login.microsoftonline.com/${CONFIG.tenantId}`,
         redirectUri: CONFIG.redirectUri
     }
 };
 
-const msalInstance = new msal.PublicClientApplication(msalConfig);
+const msalInstance =
+    new msal.PublicClientApplication(msalConfig);
 
 let activeAccount = null;
 
 async function signIn() {
+
     try {
+
+        await msalInstance.initialize();
 
         const loginResponse =
             await msalInstance.loginPopup({
@@ -28,11 +33,11 @@ async function signIn() {
 
     } catch (error) {
 
-    console.error("MSAL ERROR:", error);
+        console.error("MSAL ERROR:", error);
 
-    alert(
-        "Login failed: " +
-        error.message
-    );
-}
+        alert(
+            "Login failed: " +
+            error.message
+        );
+    }
 }
