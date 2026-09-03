@@ -180,5 +180,3 @@ async function getSiteInfo() {
 
         
     }
-}
-
