@@ -178,4 +178,3 @@ async function getSiteInfo() {
 
     console.log(data);
     }
-}
