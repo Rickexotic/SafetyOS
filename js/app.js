@@ -120,9 +120,25 @@ async function submitIncident() {
             JSON.stringify(body, null, 2)
         );
 
-        const response =
-            await fetch(
-                `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items`,
+       const url =
+    `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items`;
+
+console.log("POST URL:", url);
+
+const response =
+    await fetch(
+        url,
+        {
+            method: "POST",
+
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(body)
+        }
+    );
                 {
                     method: "POST",
 
