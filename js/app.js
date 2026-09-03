@@ -157,8 +157,10 @@ async function submitIncident(){
         console.error(ex);
 
         showError(
-            "Unexpected error occurred."
-        );
+            "Unexpected error occurred." );
+    }
+}
+        
 async function getSiteInfo() {
 
     const token = await getAccessToken();
