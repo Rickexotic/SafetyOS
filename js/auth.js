@@ -11,41 +11,11 @@ const msalInstance =
 
 let activeAccount = null;
 
-window.addEventListener("load", async () => {
-
-    await msalInstance.initialize();
-
-    const accounts =
-        msalInstance.getAllAccounts();
-
-    if (accounts.length > 0) {
-
-        activeAccount =
-            accounts[0];
-
-        const userInfo =
-            document.getElementById("userInfo");
-
-        if (userInfo) {
-
-            userInfo.innerText =
-                activeAccount.username;
-        }
-
-        const loginButton =
-            document.getElementById("loginButton");
-
-        if (loginButton) {
-
-            loginButton.style.display =
-                "none";
-        }
-    }
-});
-
 async function signIn() {
 
     try {
+
+        await msalInstance.initialize();
 
         const loginResponse =
             await msalInstance.loginPopup({
@@ -58,28 +28,24 @@ async function signIn() {
         activeAccount =
             loginResponse.account;
 
-        const userInfo =
-            document.getElementById("userInfo");
+        document.getElementById("userInfo").innerText =
+            activeAccount.username;
 
-        if (userInfo) {
+        document.getElementById("loginButton").style.display =
+            "none";
 
-            userInfo.innerText =
-                activeAccount.username;
-        }
-
-        const loginButton =
-            document.getElementById("loginButton");
-
-        if (loginButton) {
-
-            loginButton.style.display =
-                "none";
-        }
+        console.log(
+            "Logged in:",
+            activeAccount
+        );
 
     }
-    catch (error) {
+    catch(error) {
 
-        console.error(error);
+        console.error(
+            "MSAL ERROR:",
+            error
+        );
 
         alert(
             "Login failed: " +
@@ -90,13 +56,16 @@ async function signIn() {
 
 async function getAccessToken() {
 
-    const response =
+    const tokenResponse =
         await msalInstance.acquireTokenSilent({
-            account: activeAccount,
+
+            account:
+                activeAccount,
+
             scopes: [
                 "Sites.ReadWrite.All"
             ]
         });
 
-    return response.accessToken;
+    return tokenResponse.accessToken;
 }
