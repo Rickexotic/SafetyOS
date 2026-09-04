@@ -391,3 +391,21 @@ document
             );
         }
     );
+document
+    .querySelectorAll(".form-select")
+    .forEach(select => {
+
+        select.addEventListener(
+            "change",
+            function(){
+
+                if(this.value){
+
+                    this.classList.add(
+                        "valid-selection"
+                    );
+                }
+            }
+        );
+
+    });
