@@ -82,9 +82,28 @@ async function submitIncident() {
         const token =
             await getAccessToken();
 
+        if (!validateForm()) {
+    return;
+}
+
+const token =
+    await getAccessToken();
+
+const photoFile =
+    document.getElementById("incidentPhoto")
+        .files[0];
+
+const photoUrl =
+    await uploadPhoto(photoFile);
+
+const body = {
+    fields: {
+
         const photoFile =
     document.getElementById("incidentPhoto")
         .files[0];
+
+        
 
         const body = {
             fields: {
@@ -113,6 +132,9 @@ async function submitIncident() {
 
                 Description:
                     document.getElementById("description").value,
+                
+                PhotoUrl:
+                    photoUrl,
 
                 Status:
                     "Reported"
