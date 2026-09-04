@@ -66,10 +66,52 @@ async function loadIncidents() {
         console.error(ex);
     }
 }
-
 function renderIncidents(
     incidents
 ) {
+
+    const container =
+        document.getElementById(
+            "incidentHistory"
+        );
+
+    container.innerHTML = "";
+
+    incidents.forEach(item => {
+
+        const f = item.fields;
+
+        container.innerHTML += `
+
+            <div class="incident-row">
+
+                <div class="row-id">
+                    ${f.IncidentID || ""}
+                </div>
+
+                <div class="row-type">
+                    ${f.IncidentType || ""}
+                </div>
+
+                <div class="row-site">
+                    ${f.Site || ""}
+                </div>
+
+                <div class="row-severity severity-${(f.Severity || "").toLowerCase()}">
+                    ${f.Severity || ""}
+                </div>
+
+                <div class="row-status">
+                    ${f.Status || ""}
+                </div>
+
+            </div>
+
+        `;
+    });
+}
+
+{
 
     const container =
         document.getElementById(
