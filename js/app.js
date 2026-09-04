@@ -69,9 +69,14 @@ async function uploadPhoto(file) {
     const fileName =
         `${Date.now()}_${file.name}`;
 
+    const uploadUrl =
+        `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drive/root:/IncidentPhotos/${fileName}:/content`;
+
+    console.log("UPLOAD URL:", uploadUrl);
+
     const response =
         await fetch(
-            `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drive/root:/IncidentPhotos/${fileName}:/content`,
+            uploadUrl,
             {
                 method: "PUT",
 
@@ -84,10 +89,18 @@ async function uploadPhoto(file) {
             }
         );
 
-    const data =
+    const result =
         await response.json();
 
-    return data.webUrl;
+    console.log("UPLOAD RESPONSE:", result);
+
+    if (!response.ok) {
+        throw new Error(
+            JSON.stringify(result)
+        );
+    }
+
+    return result.webUrl;
 }
 
 async function submitIncident() {
@@ -114,7 +127,9 @@ async function submitIncident() {
             document.getElementById(
                 "incidentPhoto"
             ).files[0];
-
+        
+console.log("PHOTO FILE:", photoFile);
+        
         const photoUrl =
             await uploadPhoto(photoFile);
 
@@ -232,6 +247,27 @@ async function submitIncident() {
             ex.message
         );
     }
+}
+
+async function getDrives() {
+
+    const token =
+        await getAccessToken();
+
+    const response =
+        await fetch(
+            "https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drives",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+    const data =
+        await response.json();
+
+    console.log(data);
 }
 
 async function testSiteInfo() {
