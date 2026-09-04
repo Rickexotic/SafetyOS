@@ -481,7 +481,7 @@ hr{
         font-size:.95rem;
     }
 
-    .bottom-nav{
+.bottom-nav{
 
     position:fixed;
 
@@ -491,22 +491,11 @@ hr{
 
     transform:translateX(-50%);
 
-    width:calc(100% - 20px);
+    width:95%;
 
-    max-width:520px;
+    max-width:540px;
 
-    height:56px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #101827,
-            #172235
-        );
-
-    border:1px solid rgba(255,255,255,.05);
-
-    border-radius:14px;
+    height:52px;
 
     display:flex;
 
@@ -514,49 +503,35 @@ hr{
 
     align-items:center;
 
+    background:#101827;
+
+    border-radius:12px;
+
     z-index:999;
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.45);
 }
 
-    .nav-item{
-
-    flex:1;
+.nav-item{
 
     text-decoration:none;
 
     text-align:center;
 
     color:#64748b;
-
-    transition:.2s;
 }
 
 .nav-icon{
 
-    display:flex;
+    font-size:16px;
 
-    justify-content:center;
-
-    align-items:center;
-
-    color:#64748b;
+    line-height:1;
 }
 
 .nav-label{
 
+    font-size:10px;
+
     margin-top:2px;
-
-    font-size:.65rem;
-
-    font-weight:600;
-
-    color:#64748b;
 }
-
 
    .nav-item.active{
 
