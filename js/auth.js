@@ -1,68 +1,47 @@
 const msalConfig = {
     auth: {
         clientId: CONFIG.clientId,
-
-        authority:
-            `https://login.microsoftonline.com/${CONFIG.tenantId}`,
-
-        redirectUri:
-            CONFIG.redirectUri
+        authority: `https://login.microsoftonline.com/${CONFIG.tenantId}`,
+        redirectUri: CONFIG.redirectUri
     }
 };
 
 const msalInstance =
-    new msal.PublicClientApplication(
-        msalConfig
-    );
+    new msal.PublicClientApplication(msalConfig);
 
 let activeAccount = null;
 
-/* -------------------------
-   Restore Account
--------------------------- */
+window.addEventListener("load", async () => {
 
-window.addEventListener(
-    "load",
-    async () => {
+    await msalInstance.initialize();
 
-        await msalInstance.initialize();
+    const accounts =
+        msalInstance.getAllAccounts();
 
-        const accounts =
-            msalInstance.getAllAccounts();
+    if (accounts.length > 0) {
 
-        if (accounts.length > 0) {
+        activeAccount =
+            accounts[0];
 
-            activeAccount =
-                accounts[0];
+        const userInfo =
+            document.getElementById("userInfo");
 
-            const userInfo =
-                document.getElementById(
-                    "userInfo"
-                );
+        if (userInfo) {
 
-            if (userInfo) {
+            userInfo.innerText =
+                activeAccount.username;
+        }
 
-                userInfo.innerText =
-                    activeAccount.username;
-            }
+        const loginButton =
+            document.getElementById("loginButton");
 
-            const loginButton =
-                document.getElementById(
-                    "loginButton"
-                );
+        if (loginButton) {
 
-            if (loginButton) {
-
-                loginButton.style.display =
-                    "none";
-            }
+            loginButton.style.display =
+                "none";
         }
     }
-);
-
-/* -------------------------
-   Login
--------------------------- */
+});
 
 async function signIn() {
 
@@ -80,9 +59,7 @@ async function signIn() {
             loginResponse.account;
 
         const userInfo =
-            document.getElementById(
-                "userInfo"
-            );
+            document.getElementById("userInfo");
 
         if (userInfo) {
 
@@ -91,9 +68,7 @@ async function signIn() {
         }
 
         const loginButton =
-            document.getElementById(
-                "loginButton"
-            );
+            document.getElementById("loginButton");
 
         if (loginButton) {
 
@@ -101,12 +76,10 @@ async function signIn() {
                 "none";
         }
 
-    } catch (error) {
+    }
+    catch (error) {
 
-        console.error(
-            "MSAL ERROR:",
-            error
-        );
+        console.error(error);
 
         alert(
             "Login failed: " +
@@ -115,22 +88,15 @@ async function signIn() {
     }
 }
 
-/* -------------------------
-   Access Token
--------------------------- */
-
 async function getAccessToken() {
 
-    const tokenResponse =
+    const response =
         await msalInstance.acquireTokenSilent({
-
-            account:
-                activeAccount,
-
+            account: activeAccount,
             scopes: [
                 "Sites.ReadWrite.All"
             ]
         });
 
-    return tokenResponse.accessToken;
+    return response.accessToken;
 }
