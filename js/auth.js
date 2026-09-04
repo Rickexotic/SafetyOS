@@ -26,10 +26,13 @@ async function signIn() {
                 ]
             });
 
-        activeAccount = loginResponse.account;
+       activeAccount = loginResponse.account;
 
-        document.getElementById("userInfo").innerText =
-            activeAccount.username;
+document.getElementById("userInfo").innerText =
+    activeAccount.username;
+
+document.getElementById("loginButton").style.display =
+    "none";
 
     } catch (error) {
 
