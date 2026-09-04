@@ -95,7 +95,11 @@ async function uploadPhoto(file) {
     const result =
         await response.json();
 
-  
+    console.log(
+        "UPLOAD RESPONSE:",
+        result
+    );
+
     if (!response.ok) {
 
         throw new Error(
@@ -132,7 +136,7 @@ function resetForm() {
 
     document
         .getElementById("newIncidentBtn")
-        .classList.add("d-none");
+        ?.classList.add("d-none");
 }
 
 async function submitIncident() {
@@ -156,20 +160,37 @@ async function submitIncident() {
             await getAccessToken();
 
         const photoFile =
-            document.getElementById(
-                "incidentPhoto"
-            ).files[0];
-        
-console.log("PHOTO FILE:", photoFile);
-        
-        const photoUrl =
-            await uploadPhoto(photoFile);
-        console.log("PHOTO URL:", photoUrl);
+            document
+                .getElementById(
+                    "incidentPhoto"
+                )
+                .files[0];
+
+        console.log(
+            "PHOTO FILE:",
+            photoFile
+        );
+
+        let photoUrl = "";
+
+        if (photoFile) {
+
+            photoUrl =
+                await uploadPhoto(
+                    photoFile
+                );
+
+            console.log(
+                "PHOTO URL:",
+                photoUrl
+            );
+        }
 
         const body = {
             fields: {
 
-                Title: "Incident",
+                Title:
+                    "Incident",
 
                 IncidentID:
                     "INC-" +
@@ -183,19 +204,24 @@ console.log("PHOTO FILE:", photoFile);
                     new Date().toISOString(),
 
                 Site:
-                    document.getElementById("site").value,
+                    document.getElementById(
+                        "site"
+                    ).value,
 
                 IncidentType:
-                    document.getElementById("incidentType").value,
+                    document.getElementById(
+                        "incidentType"
+                    ).value,
 
                 Severity:
-                    document.getElementById("severity").value,
+                    document.getElementById(
+                        "severity"
+                    ).value,
 
                 Description:
-                    document.getElementById("description").value,
-
-                PhotoUrl:
-                    photoUrl,
+                    document.getElementById(
+                        "description"
+                    ).value,
 
                 Status:
                     "Reported"
@@ -204,7 +230,11 @@ console.log("PHOTO FILE:", photoFile);
 
         console.log(
             "Payload:",
-            JSON.stringify(body, null, 2)
+            JSON.stringify(
+                body,
+                null,
+                2
+            )
         );
 
         const url =
@@ -245,6 +275,9 @@ console.log("PHOTO FILE:", photoFile);
                 );
 
             if (preview) {
+
+                preview.src = "";
+
                 preview.classList.add(
                     "d-none"
                 );
@@ -255,8 +288,12 @@ console.log("PHOTO FILE:", photoFile);
             );
 
             document
-    .getElementById("newIncidentBtn")
-    .classList.remove("d-none");
+                .getElementById(
+                    "newIncidentBtn"
+                )
+                ?.classList.remove(
+                    "d-none"
+                );
 
         } else {
 
@@ -296,7 +333,8 @@ async function getDrives() {
             "https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drives",
             {
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization:
+                        `Bearer ${token}`
                 }
             }
         );
@@ -307,40 +345,10 @@ async function getDrives() {
     console.log(data);
 }
 
-async function testSiteInfo() {
-
-    try {
-
-        const token =
-            await getAccessToken();
-
-        const response =
-            await fetch(
-                "https://graph.microsoft.com/v1.0/sites/root",
-                {
-                    headers: {
-                        Authorization:
-                            `Bearer ${token}`
-                    }
-                }
-            );
-
-        const data =
-            await response.json();
-
-        console.log(
-            "SITE INFO:",
-            data
-        );
-
-    } catch (error) {
-
-        console.error(error);
-    }
-}
-
 document
-    .getElementById("incidentPhoto")
+    .getElementById(
+        "incidentPhoto"
+    )
     ?.addEventListener(
         "change",
         function () {
@@ -375,6 +383,8 @@ document
                     );
                 };
 
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(
+                file
+            );
         }
     );
