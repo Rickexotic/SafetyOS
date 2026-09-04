@@ -16,7 +16,7 @@ async function loadIncidents() {
             await fetch(
                 `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items?expand=fields`,
                 {
-                    headers:{
+                    headers: {
                         Authorization:
                             `Bearer ${token}`
                     }
@@ -26,6 +26,8 @@ async function loadIncidents() {
         const data =
             await response.json();
 
+        console.log(data);
+
         allIncidents =
             data.value || [];
 
@@ -33,8 +35,7 @@ async function loadIncidents() {
             allIncidents
         );
 
-    }
-    catch(ex){
+    } catch (ex) {
 
         console.error(ex);
     }
@@ -42,7 +43,7 @@ async function loadIncidents() {
 
 function renderIncidents(
     incidents
-){
+) {
 
     const container =
         document.getElementById(
@@ -52,80 +53,73 @@ function renderIncidents(
     container.innerHTML = "";
 
     incidents
+        .slice()
         .reverse()
         .forEach(item => {
 
             const f =
                 item.fields;
 
-            container.innerHTML +=
-            `
-            <div class="incident-card">
+            container.innerHTML += `
+                <div class="incident-card">
 
-                <div class="incident-id">
+                    <div class="incident-id">
+                        ${f.IncidentID || ""}
+                    </div>
 
-                    ${f.IncidentID || ""}
+                    <div class="incident-type">
+                        ${f.IncidentType || ""}
+                    </div>
 
-                </div>
+                    <div class="incident-grid">
 
-                <div class="incident-type">
+                        <span>
+                            📍 ${f.Site || ""}
+                        </span>
 
-                    ${f.IncidentType || ""}
+                        <span>
+                            ⚠ ${f.Severity || ""}
+                        </span>
 
-                </div>
+                    </div>
 
-                <div class="incident-grid">
-
-                    <span>
-                        📍 ${f.Site || ""}
-                    </span>
-
-                    <span>
-                        ⚠ ${f.Severity || ""}
-                    </span>
-
-                </div>
-
-                <div class="incident-status">
-
-                    ${f.Status || ""}
+                    <div class="incident-status">
+                        ${f.Status || ""}
+                    </div>
 
                 </div>
-
-            </div>
             `;
         });
 }
 
-document
-    .addEventListener(
-        "input",
-        function(e){
+document.addEventListener(
+    "input",
+    function (e) {
 
-            if(
-                e.target.id !==
-                "searchBox"
-            ){
-                return;
-            }
-
-            const text =
-                e.target.value
-                    .toLowerCase();
-
-            const filtered =
-                allIncidents.filter(i => {
-
-                    const f =
-                        i.fields;
-
-                    return JSON.stringify(f)
-                        .toLowerCase()
-                        .includes(text);
-                });
-
-            renderIncidents(
-                filtered
-            );
+        if (
+            e.target.id !==
+            "searchBox"
+        ) {
+            return;
         }
-    );
+
+        const text =
+            e.target.value
+                .toLowerCase();
+
+        const filtered =
+            allIncidents.filter(i => {
+
+                const f =
+                    i.fields;
+
+                return JSON.stringify(f)
+                    .toLowerCase()
+                    .includes(text);
+            });
+
+        renderIncidents(
+            filtered
+        );
+    }
+);
