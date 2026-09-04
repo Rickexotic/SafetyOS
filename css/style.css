@@ -480,4 +480,92 @@ hr{
     h4{
         font-size:.95rem;
     }
+
+    .bottom-nav{
+
+    position:fixed;
+
+    bottom:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:calc(100% - 20px);
+
+    max-width:520px;
+
+    height:56px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101827,
+            #172235
+        );
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    z-index:999;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.45);
 }
+
+.nav-item{
+
+    flex:1;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    transition:.2s;
+}
+
+.nav-item.active{
+
+    color:#60a5fa;
+}
+
+.nav-icon{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.nav-label{
+
+    margin-top:2px;
+
+    font-size:.65rem;
+
+    font-weight:600;
+}
+
+.nav-item:hover{
+
+    color:white;
+}
+
+body{
+
+    padding-bottom:75px;
+}
+}
+
