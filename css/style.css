@@ -215,6 +215,16 @@ h4{
     color:#64748b;
 }
 
+.form-select{
+
+    color:#64748b !important;
+}
+
+.form-select.valid-selection{
+
+    color:white !important;
+}
+
 /* Igualar "Select..." */
 
 .form-select{
