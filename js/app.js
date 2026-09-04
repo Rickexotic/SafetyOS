@@ -223,6 +223,9 @@ async function submitIncident() {
                         "description"
                     ).value,
 
+                PhotoLink:
+                    photoUrl,
+
                 Status:
                     "Reported"
             }
