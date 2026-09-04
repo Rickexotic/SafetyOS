@@ -82,6 +82,10 @@ async function submitIncident() {
         const token =
             await getAccessToken();
 
+        const photoFile =
+    document.getElementById("incidentPhoto")
+        .files[0];
+
         const body = {
             fields: {
 
@@ -177,6 +181,39 @@ const response =
             ex.message
         );
     }
+}
+
+async function uploadPhoto(file) {
+
+    if (!file) {
+        return "";
+    }
+
+    const token =
+        await getAccessToken();
+
+    const fileName =
+        `${Date.now()}_${file.name}`;
+
+    const response =
+        await fetch(
+            `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drive/root:/IncidentPhotos/${fileName}:/content`,
+            {
+                method: "PUT",
+
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": file.type
+                },
+
+                body: file
+            }
+        );
+
+    const data =
+        await response.json();
+
+    return data.webUrl;
 }
 
 async function testSiteInfo() {
