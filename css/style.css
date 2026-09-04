@@ -613,6 +613,75 @@ body{
 
     font-weight:600;
 }
+
+    /* HISTORY GRID */
+
+.incident-row{
+
+    display:gri*;
+
+    grid-template-columns:
+    *   95px
+        1fr
+        70px
+ *      60px
+        70px;
+
+    gap:*px;
+
+    align-items:center;
+
+    *adding:8px 10px;
+
+    border-botto*:
+        1px solid rgba(255,255,2*5,.05);
+
+    font-size:.75rem;
+}
+
+*row-id{
+
+    color:#60a5fa;
+
+    f*nt-weight:600;
+}
+
+.row-type{
+
+    *olor:white;
+}
+
+.row-site{
+
+    col*r:#94a3b8;
+}
+
+.row-status{
+
+    co*or:#6ee7b7;
+}
+
+.severity-low{
+
+   *color:#10b981;
+}
+
+.severity-medium*
+
+    color:#f59e0b;
+}
+
+.severity-*igh{
+
+    color:#ef4444;
+}
+
+.sever*ty-critical{
+
+    color:#ff365d;
+
+*   font-weight:700;
+}
     
 }
 
