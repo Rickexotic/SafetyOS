@@ -95,8 +95,7 @@ async function uploadPhoto(file) {
     const result =
         await response.json();
 
-    console.log("UPLOAD RESPONSE:", result);
-
+  
     if (!response.ok) {
 
         throw new Error(
