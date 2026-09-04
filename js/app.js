@@ -69,8 +69,11 @@ async function uploadPhoto(file) {
     const fileName =
         `${Date.now()}_${file.name}`;
 
+    const driveId =
+        "b!cy-mWJulekmNfv_GhI-cxBK1NLW_-7NKiS9coSLvnBf9iMkSyWHMTbiRI93oerkZ";
+
     const uploadUrl =
-        `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/drive/root:/IncidentPhotos/${fileName}:/content`;
+        `https://graph.microsoft.com/v1.0/drives/${driveId}/root:/${fileName}:/content`;
 
     console.log("UPLOAD URL:", uploadUrl);
 
@@ -95,6 +98,7 @@ async function uploadPhoto(file) {
     console.log("UPLOAD RESPONSE:", result);
 
     if (!response.ok) {
+
         throw new Error(
             JSON.stringify(result)
         );
@@ -181,6 +185,8 @@ console.log("PHOTO FILE:", photoFile);
             "POST URL:",
             url
         );
+
+        console.log("UPLOAD URL:", uploadUrl);
 
         const response =
             await fetch(
