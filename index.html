@@ -40,10 +40,15 @@
                     <span id="userInfo">Not connected</span>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="signIn()">
-                    Microsoft Login
-                </button>
+               <button id="loginButton"
+        class="btn btn-primary"
+        onclick="signIn()">
+    Microsoft Login
+</button>
+
+                <div id="loginStatus" class="text-success d-none">
+    ✅ Connected to Microsoft 365
+</div>
 
             </div>
 
