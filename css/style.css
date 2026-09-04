@@ -218,8 +218,11 @@ h4{
 /* Igualar "Select..." */
 
 .form-select{
-
     color:#64748b;
+}
+
+.form-select.valid-selection{
+    color:white;
 }
 
 .form-control:focus,
