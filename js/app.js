@@ -136,6 +136,7 @@ console.log("PHOTO FILE:", photoFile);
         
         const photoUrl =
             await uploadPhoto(photoFile);
+        console.log("PHOTO URL:", photoUrl);
 
         const body = {
             fields: {
@@ -185,8 +186,6 @@ console.log("PHOTO FILE:", photoFile);
             "POST URL:",
             url
         );
-
-        console.log("UPLOAD URL:", uploadUrl);
 
         const response =
             await fetch(
