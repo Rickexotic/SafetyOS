@@ -69,3 +69,59 @@ async function getAccessToken() {
 
     return tokenResponse.accessToken;
 }
+document
+    .getElementById("sortBy")
+    ?.addEventListener(
+        "change",
+        function(){
+
+            const value =
+                this.value;
+
+            const sorted =
+                [...allIncidents];
+
+            if(value === "site"){
+
+                sorted.sort(
+                    (a,b)=>
+                        (a.fields.Site || "")
+                        .localeCompare(
+                            b.fields.Site || ""
+                        )
+                );
+            }
+
+            if(value === "status"){
+
+                sorted.sort(
+                    (a,b)=>
+                        (a.fields.Status || "")
+                        .localeCompare(
+                            b.fields.Status || ""
+                        )
+                );
+            }
+
+            if(value === "severity"){
+
+                const rank = {
+                    Low:1,
+                    Medium:2,
+                    High:3,
+                    Critical:4
+                };
+
+                sorted.sort(
+                    (a,b)=>
+                        (rank[b.fields.Severity] || 0)
+                        -
+                        (rank[a.fields.Severity] || 0)
+                );
+            }
+
+            renderIncidents(
+                sorted
+            );
+        }
+    );
