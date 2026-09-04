@@ -22,7 +22,8 @@ let activeAccount = null;
 -------------------------- */
 
 window.addEventListener(
-     => {
+    "load",
+    async () => {
 
         await msalInstance.initialize();
 
@@ -78,10 +79,16 @@ async function signIn() {
         activeAccount =
             loginResponse.account;
 
-        document
-            .getElementById("userInfo")
-            .innerText =
-            activeAccount.username;
+        const userInfo =
+            document.getElementById(
+                "userInfo"
+            );
+
+        if (userInfo) {
+
+            userInfo.innerText =
+                activeAccount.username;
+        }
 
         const loginButton =
             document.getElementById(
