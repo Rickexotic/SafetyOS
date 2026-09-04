@@ -111,54 +111,6 @@ function renderIncidents(
     });
 }
 
-{
-
-    const container =
-        document.getElementById(
-            "incidentHistory"
-        );
-
-    container.innerHTML = "";
-
-    incidents
-        .slice()
-        .reverse()
-        .forEach(item => {
-
-            const f =
-                item.fields;
-
-            container.innerHTML += `
-                <div class="incident-card">
-
-                    <div class="incident-id">
-                        ${f.IncidentID || ""}
-                    </div>
-
-                    <div class="incident-type">
-                        ${f.IncidentType || ""}
-                    </div>
-
-                    <div class="incident-grid">
-
-                        <span>
-                            📍 ${f.Site || ""}
-                        </span>
-
-                        <span>
-                            ⚠ ${f.Severity || ""}
-                        </span>
-
-                    </div>
-
-                    <div class="incident-status">
-                        ${f.Status || ""}
-                    </div>
-
-                </div>
-            `;
-        });
-}
 
 document
     .getElementById("sortBy")
