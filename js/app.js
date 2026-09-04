@@ -106,6 +106,35 @@ async function uploadPhoto(file) {
     return result.webUrl;
 }
 
+function resetForm() {
+
+    document
+        .getElementById("incidentForm")
+        .reset();
+
+    document
+        .getElementById("successMessage")
+        .classList.add("d-none");
+
+    document
+        .getElementById("errorMessage")
+        .classList.add("d-none");
+
+    const preview =
+        document.getElementById("previewImage");
+
+    if (preview) {
+
+        preview.src = "";
+
+        preview.classList.add("d-none");
+    }
+
+    document
+        .getElementById("newIncidentBtn")
+        .classList.add("d-none");
+}
+
 async function submitIncident() {
 
     try {
@@ -224,6 +253,10 @@ console.log("PHOTO FILE:", photoFile);
             showSuccess(
                 "Incident submitted successfully."
             );
+
+            document
+    .getElementById("newIncidentBtn")
+    .classList.remove("d-none");
 
         } else {
 
