@@ -2,7 +2,33 @@ let allIncidents = [];
 
 window.addEventListener(
     "load",
-    loadIncidents
+    async () => {
+
+        await msalInstance.initialize();
+
+        const accounts =
+            msalInstance.getAllAccounts();
+
+        if (accounts.length > 0) {
+
+            activeAccount =
+                accounts[0];
+
+            const userInfo =
+                document.getElementById(
+                    "userInfo"
+                );
+
+            if (userInfo) {
+
+                userInfo.innerText =
+                    activeAccount.username;
+            }
+        }
+
+        await loadIncidents();
+
+    }
 );
 
 async function loadIncidents() {
