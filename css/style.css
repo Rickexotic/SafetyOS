@@ -281,6 +281,85 @@ textarea.form-control{
     color:#60a5fa;
 }
 
+/* Upload Area */
+
+.upload-area{
+
+    display:block;
+
+    width:100%;
+
+    cursor:pointer;
+
+    margin-top:8px;
+}
+
+.upload-area input{
+
+    display:none;
+}
+
+.upload-content{
+
+    background:#0f172a;
+
+    border:1px solid #22314a;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.25s;
+}
+
+.upload-content:hover{
+
+    border-color:#3b82f6;
+
+    background:#13203a;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.15);
+}
+
+.upload-icon{
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+}
+
+.upload-title{
+
+    color:white;
+
+    font-weight:600;
+
+    font-size:1rem;
+}
+
+.upload-subtitle{
+
+    margin-top:5px;
+
+    color:#94a3b8;
+
+    font-size:.85rem;
+}
+
+.selected-file{
+
+    margin-top:10px;
+
+    color:#60a5fa;
+
+    font-size:.9rem;
+
+    text-align:center;
+}
+
 /* Image Preview */
 
 #previewImage{
