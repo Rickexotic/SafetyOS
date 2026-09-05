@@ -566,10 +566,7 @@ hr{
     
 .nav-item.active{
 
-    background:
-        rgba(37,99,235,.15);
-
-    border-radius:10px;
+    background:transparent;
 }
 
 .nav-item.active::before{
@@ -578,9 +575,9 @@ hr{
 
     position:absolute;
 
-    width:36px;
+    width:34px;
 
-    height:36px;
+    height:34px;
 
     border-radius:50%;
 
@@ -592,7 +589,7 @@ hr{
 
     z-index:0;
 }
-
+    
 .nav-item.active svg{
 
     color:#60a5fa;
