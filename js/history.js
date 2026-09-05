@@ -79,30 +79,39 @@ function renderIncidents(
 
     incidents.forEach(item => {
 
-        const f = item.fields;
+        const f =
+            item.fields;
 
         container.innerHTML += `
 
             <div class="incident-row">
 
-                <div class="row-id">
-                    ${f.IncidentID || ""}
+                <div class="row-top">
+
+                    <span class="row-id">
+                        ${f.IncidentID || ""}
+                    </span>
+
+                    <span class="row-type">
+                        ${f.IncidentType || ""}
+                    </span>
+
                 </div>
 
-                <div class="row-type">
-                    ${f.IncidentType || ""}
-                </div>
+                <div class="row-bottom">
 
-                <div class="row-site">
-                    ${f.Site || ""}
-                </div>
+                    <span class="row-site">
+                        ${f.Site || ""}
+                    </span>
 
-                <div class="row-severity severity-${(f.Severity || "").toLowerCase()}">
-                    ${f.Severity || ""}
-                </div>
+                    <span class="row-severity severity-${(f.Severity || "").toLowerCase()}">
+                        ${f.Severity || ""}
+                    </span>
 
-                <div class="row-status">
-                    ${f.Status || ""}
+                    <span class="row-status">
+                        ${f.Status || ""}
+                    </span>
+
                 </div>
 
             </div>
@@ -110,7 +119,6 @@ function renderIncidents(
         `;
     });
 }
-
 
 document
     .getElementById("sortBy")
