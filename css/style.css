@@ -679,78 +679,59 @@ body{
 
 .incident-row{
 
-    display:grid;
-
-    grid-template-columns:
-        85px
-        1fr
-        55px
-        60px;
-
-    align-items:center;
-
-    padding:5px 8px;
-
-    margin-bottom:1px;
-
-    background:#162033;
+    padding:6px 8px;
 
     border-bottom:
-        1px solid rgba(255,255,255,.04);
+        1px solid rgba(255,255,255,.05);
 }
-    
+
+.row-top{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+}
+
+.row-bottom{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:2px;
+}
+
 .row-id{
 
     color:#94a3b8;
 
     font-size:.68rem;
 
-    font-weight:500;
+    font-weight:600;
 }
 
 .row-type{
 
-    color:#cbd5e1;
+    color:#e2e8f0;
 
-    font-size:.70rem;
-
-    font-weight:400;
+    font-size:.72rem;
 }
 
-.row-site{
+.row-site,
+.row-status{
 
     color:#64748b;
 
-    font-size:.68rem;
+    font-size:.66rem;
 }
 
-.row-status{
+.row-severity{
 
-    color:#94a3b8;
+    font-size:.66rem;
 
-    font-size:.68rem;
-
-    font-weight:400;
-}
-    
-.severity-low{
-
-    color:#6b7280;
-}
-
-.severity-medium{
-
-    color:#94a3b8;
-}
-
-.severity-high{
-
-    color:#cbd5e1;
-}
-
-.severity-critical{
-
-    color:#ffffff;
-}    
+    font-weight:600;
+}   
 }
 
