@@ -25,7 +25,7 @@
    GLOBAL
 ---------------------------- */
 
-*{
+{
     box-sizing:border-box;
 }
 
@@ -639,31 +639,42 @@ body{
     font-size:.75rem;
 }
 
-*row-id{
+.row-id{
 
-    color:#60a5fa;
+    color:#93c5fd;
 
-    f*nt-weight:600;
+    font-size:.78rem;
+
+    font-weight:600;
 }
 
 .row-type{
 
-    *olor:white;
+    color:#ffffff;
+
+    font-size:.80rem;
+
+    font-weight:500;
 }
 
 .row-site{
 
-    col*r:#94a3b8;
+    color:#cbd5e1;
+
+    font-size:.75rem;
 }
 
 .row-status{
 
-    co*or:#6ee7b7;
-}
+    color:#e2e8f0;
 
+    font-size:.75rem;
+
+    font-weight:500;
+}
 .severity-low{
 
-   *color:#10b981;
+   color:#10b981;
 }
 
 .severity-medium*
@@ -671,7 +682,7 @@ body{
     color:#f59e0b;
 }
 
-.severity-*igh{
+.severity-high{
 
     color:#ef4444;
 }
