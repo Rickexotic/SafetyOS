@@ -529,14 +529,23 @@ hr{
     margin-top:2px;
 }
 
-   .nav-item.active{
+.nav-item.active{
 
     background:
-        rgba(59,130,246,.12);
+        rgba(255,255,255,.04);
 
-    border-radius:10px;
-}    
+    border-radius:8px;
+}
 
+.nav-item.active svg{
+
+    color:#94a3b8;
+}
+
+.nav-item.active .nav-label{
+
+    color:#94a3b8;
+}
 .nav-item:hover{
 
     color:white;
