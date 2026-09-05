@@ -21,6 +21,17 @@ document.addEventListener(
     }
 );
 
+function navigateTo(page){
+
+    document.body.style.opacity = "0.6";
+
+    setTimeout(() => {
+
+        window.location.href = page;
+
+    }, 120);
+}
+
 function handleSwipe() {
 
     const distance =
@@ -44,8 +55,7 @@ function handleSwipe() {
 
         if (distance < -80) {
 
-            window.location.href =
-                "history.html";
+           navigateTo("history.html");
         }
     }
 
@@ -57,8 +67,8 @@ function handleSwipe() {
 
         if (distance > 80) {
 
-            window.location.href =
-                "index.html";
+            navigateTo("index.html");
+                
         }
 
         if (distance < -80) {
@@ -76,8 +86,7 @@ function handleSwipe() {
 
         if (distance > 80) {
 
-            window.location.href =
-                "history.html";
+           navigateTo("history.html");
         }
     }
 }
