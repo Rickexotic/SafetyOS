@@ -617,78 +617,75 @@ body{
     display:grid;
 
     grid-template-columns:
-       95px
+        85px
         1fr
-        70px
-       60px
-        70px;
-
-    gap:px;
+        55px
+        60px;
 
     align-items:center;
 
-    adding:8px 10px;
+    padding:5px 8px;
+
+    margin-bottom:1px;
+
+    background:#162033;
 
     border-bottom:
-        1px solid rgba(255,255,255,.05);
-
-    font-size:.75rem;
+        1px solid rgba(255,255,255,.04);
 }
-
+    
 .row-id{
 
-    color:#93c5fd;
+    color:#94a3b8;
 
-    font-size:.78rem;
+    font-size:.68rem;
 
-    font-weight:600;
+    font-weight:500;
 }
 
 .row-type{
 
-    color:#ffffff;
+    color:#cbd5e1;
 
-    font-size:.80rem;
+    font-size:.70rem;
 
-    font-weight:500;
+    font-weight:400;
 }
 
 .row-site{
 
-    color:#cbd5e1;
+    color:#64748b;
 
-    font-size:.75rem;
+    font-size:.68rem;
 }
 
 .row-status{
 
-    color:#e2e8f0;
+    color:#94a3b8;
 
-    font-size:.75rem;
+    font-size:.68rem;
 
-    font-weight:500;
+    font-weight:400;
 }
+    
 .severity-low{
 
-   color:#10b981;
+    color:#6b7280;
 }
 
 .severity-medium{
 
-    color:#f59e0b;
+    color:#94a3b8;
 }
 
 .severity-high{
 
-    color:#ef4444;
+    color:#cbd5e1;
 }
 
 .severity-critical{
 
-    color:#ff365d;
-
-   font-weight:700;
-}
-    
+    color:#ffffff;
+}    
 }
 
