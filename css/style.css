@@ -89,31 +89,27 @@ body{
     background:
         linear-gradient(
             135deg,
-            #2563eb,
-            #1d4ed8
+            #2563eb 0%,
+            #1e40af 100%
         );
 
-    padding:10px 14px;
-
-    border:none;
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
 }
-
 .card-header h2{
 
-    margin:0;
+    font-size:1.25rem;
 
-    font-size:1.2rem;
+    color:white;
 
     font-weight:700;
-
-    line-height:1.1;
 }
 
 .card-header small{
 
-    font-size:.7rem;
-
     color:#dbeafe;
+
+    font-size:.72rem;
 }
 
 /* ---------------------------
@@ -618,23 +614,23 @@ body{
 
 .incident-row{
 
-    display:gri*;
+    display:grid;
 
     grid-template-columns:
-    *   95px
+       95px
         1fr
         70px
- *      60px
+       60px
         70px;
 
-    gap:*px;
+    gap:px;
 
     align-items:center;
 
-    *adding:8px 10px;
+    adding:8px 10px;
 
-    border-botto*:
-        1px solid rgba(255,255,2*5,.05);
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
 
     font-size:.75rem;
 }
@@ -677,7 +673,7 @@ body{
    color:#10b981;
 }
 
-.severity-medium*
+.severity-medium{
 
     color:#f59e0b;
 }
@@ -687,11 +683,11 @@ body{
     color:#ef4444;
 }
 
-.sever*ty-critical{
+.severity-critical{
 
     color:#ff365d;
 
-*   font-weight:700;
+   font-weight:700;
 }
     
 }
