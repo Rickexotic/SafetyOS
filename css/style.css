@@ -569,26 +569,6 @@ hr{
     background:transparent;
 }
 
-.nav-item.active::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:34px;
-
-    height:34px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            rgba(37,99,235,.45),
-            rgba(37,99,235,0)
-        );
-
-    z-index:0;
-}
     
 .nav-item.active svg{
 
