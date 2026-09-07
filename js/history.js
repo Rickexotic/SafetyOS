@@ -236,3 +236,47 @@ document.addEventListener(
         );
     }
 );
+
+function renderIncidents(
+    incidents
+) {
+
+    ...
+}
+
+/* Search */
+
+document.addEventListener(
+    "input",
+    function (e) {
+
+        ...
+    }
+);
+
+/* Row selection */
+
+document.addEventListener(
+    "click",
+    function (e) {
+
+        const row =
+            e.target.closest(".incident-row");
+
+        if (!row) {
+            return;
+        }
+
+        document
+            .querySelectorAll(".incident-row")
+            .forEach(r =>
+                r.classList.remove(
+                    "active"
+                )
+            );
+
+        row.classList.add(
+            "active"
+        );
+    }
+);
