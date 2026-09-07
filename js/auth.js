@@ -28,11 +28,32 @@ async function signIn() {
         activeAccount =
             loginResponse.account;
 
-        document.getElementById("userInfo").innerText =
-            activeAccount.username;
+        sessionStorage.setItem(
+    "SafetyOSUser",
+    activeAccount.username
+);
 
-        document.getElementById("loginButton").style.display =
-            "none";
+      const userInfo =
+    document.getElementById(
+        "userInfo"
+    );
+
+if (userInfo) {
+
+    userInfo.innerText =
+        activeAccount.username;
+}
+
+      const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+if (loginButton) {
+
+    loginButton.style.display =
+        "none";
+}
 
         console.log(
             "Logged in:",
@@ -69,59 +90,64 @@ async function getAccessToken() {
 
     return tokenResponse.accessToken;
 }
-document
-    .getElementById("sortBy")
-    ?.addEventListener(
-        "change",
-        function(){
 
-            const value =
-                this.value;
+window.addEventListener(
+    "load",
+    async () => {
 
-            const sorted =
-                [...allIncidents];
+        try {
 
-            if(value === "site"){
+            await msalInstance.initialize();
 
-                sorted.sort(
-                    (a,b)=>
-                        (a.fields.Site || "")
-                        .localeCompare(
-                            b.fields.Site || ""
-                        )
-                );
+            const accounts =
+                msalInstance.getAllAccounts();
+
+            if (accounts.length > 0) {
+
+                activeAccount =
+                    accounts[0];
+
+                const userInfo =
+                    document.getElementById(
+                        "userInfo"
+                    );
+
+                if (userInfo) {
+
+                    userInfo.innerText =
+                        activeAccount.username;
+                }
+
+                const loginButton =
+                    document.getElementById(
+                        "loginButton"
+                    );
+
+                if (loginButton) {
+
+                    loginButton.style.display =
+                        "none";
+                }
+
+                const loginStatus =
+                    document.getElementById(
+                        "loginStatus"
+                    );
+
+                if (loginStatus) {
+
+                    loginStatus.classList.remove(
+                        "d-none"
+                    );
+                }
             }
 
-            if(value === "status"){
+        } catch (error) {
 
-                sorted.sort(
-                    (a,b)=>
-                        (a.fields.Status || "")
-                        .localeCompare(
-                            b.fields.Status || ""
-                        )
-                );
-            }
-
-            if(value === "severity"){
-
-                const rank = {
-                    Low:1,
-                    Medium:2,
-                    High:3,
-                    Critical:4
-                };
-
-                sorted.sort(
-                    (a,b)=>
-                        (rank[b.fields.Severity] || 0)
-                        -
-                        (rank[a.fields.Severity] || 0)
-                );
-            }
-
-            renderIncidents(
-                sorted
+            console.error(
+                "Session restore error:",
+                error
             );
         }
-    );
+    }
+);
