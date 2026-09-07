@@ -115,18 +115,20 @@ function renderIncidents(
                         ${f.Status || ""}
                     </span>
 
-                    <span class="incident-severity">
-                        ${f.Severity || ""}
+                    <span class="incident-id">
+                        ${f.IncidentID || ""}
                     </span>
-
+                   
+                   ${linkIcon}
+                   
                 </div>
 
                 <div class="incident-bottom">
 
-                    <span class="incident-id">
-                        ${f.IncidentID || ""}
+                     <span class="incident-severity">
+                        ${f.Severity || ""}
                     </span>
-
+                    
                     <span class="incident-type">
                         ${f.IncidentType || ""}
                     </span>
@@ -134,9 +136,7 @@ function renderIncidents(
                     <span class="incident-site">
                         ${f.Site || ""}
                     </span>
-
-                    ${linkIcon}
-
+               
                 </div>
 
             </div>
