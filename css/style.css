@@ -869,4 +869,49 @@ body {
         0 0 6px rgba(96,165,250,.25);
 }
 
+.header-content{
 
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.profile-photo{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:
+        1px solid rgba(255,255,255,.25);
+}
+
+.profile-initials{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:.75rem;
+
+    font-weight:600;
+}
