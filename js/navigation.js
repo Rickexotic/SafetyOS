@@ -49,25 +49,25 @@ function handleSwipe() {
     /* REPORT */
 
     if (
-        page === "index.html" ||
+        page === "history.html" ||
         page === ""
     ) {
 
         if (distance < -80) {
 
-           navigateTo("history.html");
+           navigateTo("report.html");
         }
     }
 
     /* HISTORY */
 
     else if (
-        page === "history.html"
+        page === "report.html"
     ) {
 
         if (distance > 80) {
 
-            navigateTo("index.html");
+            navigateTo("history.html");
                 
         }
 
