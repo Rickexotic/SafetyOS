@@ -603,25 +603,26 @@ body {
 
 .row-top {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     align-items: center;
 }
 
 .row-bottom {
     display: flex;
     gap: 12px;
+    align-items: center;
     margin-top: 2px;
 }
 
 .row-id {
     color: #94a3b8;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
 
 }
 
 .row-type {
     color: #94a3b8;
-    font-size: 0.72rem;
+    font-size: 0.66rem;
 }
 
 .row-site,
@@ -633,7 +634,7 @@ body {
 .row-severity {
     color: #94a3b8;
     font-size: 0.66rem;
-    font-weight: 600;
+
 }
 
 .login-container{
