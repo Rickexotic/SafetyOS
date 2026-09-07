@@ -66,6 +66,7 @@ async function loadIncidents() {
         console.error(ex);
     }
 }
+
 function renderIncidents(
     incidents
 ) {
@@ -82,35 +83,62 @@ function renderIncidents(
         const f =
             item.fields;
 
+        const photoLink =
+            f.PhotoLink || "";
+
+        const linkIcon =
+            photoLink
+                ? `
+                    ${photoLink}
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             width="14"
+                             height="14"
+                             fill="currentColor"
+                             class="bi bi-link"
+                             viewBox="0 0 16 16">
+
+                            <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+
+                            <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+
+                        </svg>
+
+                    </a>
+                  `
+                : "";
+
         container.innerHTML += `
 
             <div class="incident-row">
 
-                <div class="row-top">
+                <div class="incident-top">
 
-                    <span class="row-id">
-                        ${f.IncidentID || ""}
+                    <span class="incident-status">
+                        ${f.Status || ""}
                     </span>
 
-                    <span class="row-type">
-                        ${f.IncidentType || ""}
+                    <span class="incident-severity severity-${(f.Severity || "").toLowerCase()}">
+                        ${f.Severity || ""}
                     </span>
 
                 </div>
 
-                <div class="row-bottom">
+                <div class="incident-bottom">
 
-                    <span class="row-site">
+                    <span class="incident-id">
+                        ${f.IncidentID || ""}
+                    </span>
+
+                    <span class="incident-type">
+                        ${f.IncidentType || ""}
+                    </span>
+
+                    <span class="incident-site">
                         ${f.Site || ""}
                     </span>
 
-                    <span class="row-severity severity-${(f.Severity || "").toLowerCase()}">
-                        ${f.Severity || ""}
-                    </span>
-
-                    <span class="row-status">
-                        ${f.Status || ""}
-                    </span>
+                    ${linkIcon}
 
                 </div>
 
