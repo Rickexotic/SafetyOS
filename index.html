@@ -131,15 +131,17 @@
             AI Safety Platform
         </div>
 
-        <button
-            id="fingerprintLogin"
-            class="fingerprint-button"
-            onclick="loginAndContinue()">
+       <button
+  id="fingerprintLogin"
+  class="fingerprint-button"
+  onclick="loginAndContinue()">
 
-            ./images/huella blanco.png
-
-        </button>
-
+           <img
+    src="./images/huella blanco.png"
+    alt="Fingerprint login"
+    class="fingerprint-image">
+</button>
+        
         <div class="login-label">
             Touch to Sign In
         </div>
@@ -152,9 +154,8 @@
 
 </div>
 
-./js/config.jsscript>
-
-./js/auth.jsscript>
+<script src="./js/config.js"></script>
+<script src="./js/auth.js"></script>
 
 <script>
 
@@ -163,7 +164,7 @@ async function loginAndContinue(){
     await signIn();
 
     window.location.href =
-        "index.html";
+        "report.html";
 }
 
 window.addEventListener(
@@ -180,7 +181,7 @@ window.addEventListener(
             if(accounts.length > 0){
 
                 window.location.href =
-                    "index.html";
+                    "report.html";
             }
 
         } catch(error){
