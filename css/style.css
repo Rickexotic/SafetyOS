@@ -614,24 +614,24 @@ body {
 }
 
 .row-id {
-    color: #cbd5e1;
+    color: #94a3b8;
     font-size: 0.68rem;
     font-weight: 600;
 }
 
 .row-type {
-    color: #ffffff;
+    color: #94a3b8;
     font-size: 0.72rem;
 }
 
 .row-site,
 .row-status {
-    color: #e2e8f0;
+    color: #94a3b8;
     font-size: 0.66rem;
 }
 
 .row-severity {
-    color: #ffffff;
+    color: #94a3b8;
     font-size: 0.66rem;
     font-weight: 600;
 }
@@ -749,40 +749,40 @@ body {
 
 .incident-row.active{
 
-    back*round:
-        rgba(59,130,246,.08*;
+    background:
+        rgba(59,130,246,.08);
 
     border:
-        1px solid r*ba(59,130,246,.20);
+        1px solid rgba(59,130,246,.20);
 
-    box-shado*:
-        0 0 10px rgba(59,130,246*.15);
+    box-shadow:
+        0 0 10px rgba(59,130,246,.15);
 }
 
 .incident-top{
 
-    displ*y:flex;
+    disploy:flex;
 
     justify-content:space*between;
 
     margin-bottom:3px;
-}*
+}
 .incident-bottom{
 
-    display:gr*d;
+    display:grid;
 
     grid-template-columns:
-   *    95px
+       95px
         1fr
         70px
-*       20px;
+       20px;
 
     gap:8px;
 
-    al*gn-items:center;
+    align-items:center;
 }
 
-.incident-stat*s{
+.incident-status{
 
     font-size:.65rem;
 
