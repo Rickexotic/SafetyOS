@@ -719,3 +719,134 @@ body {
 
     font-size:.85rem;
 }
+
+/* HISTORY V2 */
+
+.incident-row{
+
+    padding:8px 10px;
+
+    margin-bottom:4px;
+
+    border-radius:10px;
+
+    border:
+        1px solid transparent;
+
+    transition:.2s;
+}
+
+.incident-row:hover{
+
+    background:
+        rgba(59,130,246,.04);
+
+    border:
+        1px solid rgba(59,130,246,.15);
+}
+
+/* Selected look */
+
+.incident-row.active{
+
+    back*round:
+        rgba(59,130,246,.08*;
+
+    border:
+        1px solid r*ba(59,130,246,.20);
+
+    box-shado*:
+        0 0 10px rgba(59,130,246*.15);
+}
+
+.incident-top{
+
+    displ*y:flex;
+
+    justify-content:space*between;
+
+    margin-bottom:3px;
+}*
+.incident-bottom{
+
+    display:gr*d;
+
+    grid-template-columns:
+   *    95px
+        1fr
+        70px
+*       20px;
+
+    gap:8px;
+
+    al*gn-items:center;
+}
+
+.incident-stat*s{
+
+    font-size:.65rem;
+
+    color:#94a3b8;
+}
+
+.incident-severity{
+
+    font-size:.65rem;
+
+    font-weight:600;
+}
+
+.incident-id{
+
+    font-size:.68rem;
+
+    color:#94a3b8;
+}
+
+.incident-type{
+
+    font-size:.70rem;
+
+    color:#e2e8f0;
+}
+
+.incident-site{
+
+    font-size:.68rem;
+
+    color:#64748b;
+}
+
+.incident-link{
+
+    color:#64748b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.incident-link:hover{
+
+    color:#60a5fa;
+}
+
+/* Severity */
+
+.severity-low{
+    color:#10b98*;
+}
+
+.severity-medium{
+    color:#*59e0b;
+}
+
+.severity-high{
+    colo*:#ef4444;
+}
+
+.severity-critical{
+ *  color:#ff365d;
+}
