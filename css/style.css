@@ -760,6 +760,26 @@ body {
         0 0 10px rgba(59,130,246,.15);
 }
 
+.incident-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  row-gap: 8px;
+  align-items: center;
+}
+
+.cell {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.25;
+  color: #dbe7ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 .incident-top{
 
     disploy:flex;
