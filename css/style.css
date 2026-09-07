@@ -454,276 +454,184 @@ hr{
 /* ---------------------------
    MOBILE
 ---------------------------- */
-
-@media(max-width:768px){
-
-    body{
-        padding:4px;
+@media (max-width: 768px) {
+    body {
+        padding: 4px;
     }
 
-    .card-body{
-        padding:10px;
+    .card-body {
+        padding: 10px;
     }
 
-    .card-header{
-        padding:8px 12px;
+    .card-header {
+        padding: 8px 12px;
     }
 
-    .card-header h2{
-        font-size:1.1rem;
+    .card-header h2 {
+        font-size: 1.1rem;
     }
 
-    h4{
-        font-size:.95rem;
+    h4 {
+        font-size: 0.95rem;
     }
-
-.bottom-nav{
-
-    position:fixed;
-
-    bottom:10px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:95%;
-
-    max-width:520px;
-
-    height:52px;
-
-    display:flex;
-
-    justify-content:space-around;
-
-    align-items:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #101827,
-            #172235
-        );
-
-    border:
-
-        1px solid rgba(255,255,255,.04);
-
-    border-radius:14px;
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-        0 8px 22px rgba(0,0,0,.4);
-
-    z-index:999;
-}
-.nav-item{
-
-    flex:1;
-
-    text-decoration:none;
-
-    text-align:center;
-
-    color:#64748b;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    height:100%;
-
-    position:relative;
 }
 
-.nav-icon svg{
-
-    width:18px;
-
-    height:18px;
-
-    color:#64748b;
-
-    transition:.25s;
+/* ---------------------------
+   BOTTOM NAV
+---------------------------- */
+.bottom-nav {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 520px;
+    height: 52px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, #101827, #172235);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+    z-index: 999;
 }
 
-.nav-label{
-
-    font-size:10px;
-
-    margin-top:2px;
-
-    color:#64748b;
-
-    transition:.25s;
-}
-    
-.nav-item.active{
-
-    background:transparent;
+.nav-item {
+    flex: 1;
+    text-decoration: none;
+    text-align: center;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
 }
 
-    
-.nav-item.active svg{
+.nav-icon svg {
+    width: 18px;
+    height: 18px;
+    color: #94a3b8;
+    transition: 0.25s;
+}
 
-    color:#60a5fa;
+.nav-label {
+    font-size: 10px;
+    margin-top: 2px;
+    color: #94a3b8;
+    transition: 0.25s;
+}
 
-    position:relative;
+.nav-item.active {
+    background: transparent;
+}
 
-    z-index:1;
-
+.nav-item.active svg {
+    color: #60a5fa;
+    position: relative;
+    z-index: 1;
     filter:
-        drop-shadow(
-            0 0 6px rgba(59,130,246,.55)
-        )
-        drop-shadow(
-            0 0 12px rgba(59,130,246,.35)
-        drop-shadow(
-            0 0 20px rgba(59,130,246,.15)
-            
-        );
+        drop-shadow(0 0 6px rgba(59, 130, 246, 0.55))
+        drop-shadow(0 0 12px rgba(59, 130, 246, 0.35))
+        drop-shadow(0 0 20px rgba(59, 130, 246, 0.15));
 }
 
-.nav-item.active .nav-label{
-
-    color:#94a3b8;
-
-    position:relative;
-
-    z-index:1;
-}
-    
-body{
-
-    padding-bottom:75px;
-}
-/* INCIDENT HISTORY */
-
-.incident-card{
-
-    background:#0f172a;
-
-    border:1px solid #22314a;
-
-    border-radius:12px;
-
-    padding:10px;
-
-    margin-bottom:8px;
-
-    transition:.2s;
+.nav-item.active .nav-label {
+    color: #cbd5e1;
+    position: relative;
+    z-index: 1;
 }
 
-.incident-card:hover{
-
-    border-color:#3b82f6;
+/* Keep content above fixed nav */
+body {
+    padding-bottom: 75px;
 }
 
-.incident-id{
-
-    color:#60a5fa;
-
-    font-size:.75rem;
-
-    font-weight:700;
+/* ---------------------------
+   INCIDENT HISTORY CARDS
+---------------------------- */
+.incident-card {
+    background: #0f172a;
+    border: 1px solid #22314a;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 8px;
+    transition: 0.2s;
 }
 
-.incident-type{
-
-    color:white;
-
-    font-size:.9rem;
-
-    margin-top:2px;
+.incident-card:hover {
+    border-color: #3b82f6;
 }
 
-.incident-grid{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-top:6px;
-
-    font-size:.72rem;
-
-    color:#94a3b8;
+.incident-id {
+    color: #60a5fa;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
-.incident-status{
-
-    margin-top:8px;
-
-    font-size:.72rem;
-
-    color:#6ee7b7;
-
-    font-weight:600;
+.incident-type {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 2px;
 }
 
-    /* HISTORY GRID */
-
-.incident-row{
-
-    padding:6px 8px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.05);
+.incident-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 0.72rem;
+    color: #cbd5e1;
 }
 
-.row-top{
-
-    display:flex;
-
-    gap:8px;
-
-    align-items:center;
+.incident-status {
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: #6ee7b7;
+    font-weight: 600;
 }
 
-.row-bottom{
-
-    display:flex;
-
-    gap:12px;
-
-    margin-top:2px;
+/* ---------------------------
+   HISTORY GRID (LIST ROWS)
+---------------------------- */
+.incident-row {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.row-id{
-
-    color:#94a3b8;
-
-    font-size:.68rem;
-
-    font-weight:600;
+.row-top {
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
-.row-type{
+.row-bottom {
+    display: flex;
+    gap: 12px;
+    margin-top: 2px;
+}
 
-    color:#e2e8f0;
+.row-id {
+    color: #cbd5e1;
+    font-size: 0.68rem;
+    font-weight: 600;
+}
 
-    font-size:.72rem;
+.row-type {
+    color: #ffffff;
+    font-size: 0.72rem;
 }
 
 .row-site,
-.row-status{
-
-    color:#64748b;
-
-    font-size:.66rem;
+.row-status {
+    color: #e2e8f0;
+    font-size: 0.66rem;
 }
 
-.row-severity{
-
-    font-size:.66rem;
-
-    font-weight:600;
-}   
+.row-severity {
+    color: #ffffff;
+    font-size: 0.66rem;
+    font-weight: 600;
 }
-
