@@ -237,12 +237,6 @@ document.addEventListener(
     }
 );
 
-function renderIncidents(
-    incidents
-) {
-
-    ...
-}
 
 /* Search */
 
