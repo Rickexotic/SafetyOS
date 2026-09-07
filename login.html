@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SafetyOS Login</title>
+
+    <link rel="stylesheet"
+          href="./css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.28.0/lib/msal-browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+  afetyOS</h1>
+
+        <p class="login-subtitle">
+            AI Safety Platform
+        </p>
+
+        <button
+            id="fingerprintLogin"
+            class="fingerprint-button"
+            onclick="signIn()">
+
+            <img
+                srcng
+
+        </button>
+
+        <div class="login-label">
+            Touch to Sign In
+        </div>
+
+    </div>
+
+</div>
+
+./js/config.jsscript>
+./js/auth.jsscript>
+
+<script>
+
+window.addEventListener(
+    "load",
+    async () => {
+
+        await msalInstance.initialize();
+
+        const accounts =
+            msalInstance.getAllAccounts();
+
+        if(accounts.length > 0){
+
+            window.location.href =
+                "dashboard.html";
+        }
+    }
+);
+
+</script>
+
+</body>
+
+</html>
