@@ -104,44 +104,21 @@ function renderIncidents(
         </a>
       `
     : "";
+        
+container.innerHTML += `
+  <div class="incident-row">
+    <div class="incident-grid">
+      <div class="cell status">${f.Status || ""}</div>
+      <div class="cell id">${f.IncidentID || ""}</div>
+      <div class="cell link">${linkIcon}</div>
 
-        container.innerHTML += `
-
-            <div class="incident-row">
-
-                <div class="incident-top">
-
-                    <span class="incident-status">
-                        ${f.Status || ""}
-                    </span>
-
-                    <span class="incident-id">
-                        ${f.IncidentID || ""}
-                    </span>
-                   
-                   ${linkIcon}
-                   
-                </div>
-
-                <div class="incident-bottom">
-
-                     <span class="incident-severity">
-                        ${f.Severity || ""}
-                    </span>
-                    
-                    <span class="incident-type">
-                        ${f.IncidentType || ""}
-                    </span>
-
-                    <span class="incident-site">
-                        ${f.Site || ""}
-                    </span>
-               
-                </div>
-
-            </div>
-
-        `;
+      <div class="cell severity">${f.Severity || ""}</div>
+      <div class="cell type">${f.IncidentType || ""}</div>
+      <div class="cell site">${f.Site || ""}</div>
+    </div>
+  </div>
+`;
+        
     });
 }
 
