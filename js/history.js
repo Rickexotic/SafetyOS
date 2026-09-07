@@ -115,7 +115,7 @@ function renderIncidents(
                         ${f.Status || ""}
                     </span>
 
-                    <span class="incident-severity severity-${(f.Severity || "").toLowerCase()}">
+                    <span class="incident-severity">
                         ${f.Severity || ""}
                     </span>
 
