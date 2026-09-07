@@ -95,7 +95,6 @@ function renderIncidents(
                              width="14"
                              height="14"
                              fill="currentColor"
-                             class="bi bi-link"
                              viewBox="0 0 16 16">
 
                             <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -105,7 +104,7 @@ function renderIncidents(
                         </svg>
 
                     </a>
-                  `
+                `
                 : "";
 
         container.innerHTML += `
@@ -147,6 +146,42 @@ function renderIncidents(
         `;
     });
 }
+
+/* SEARCH */
+
+document.addEventListener(
+    "input",
+    function (e) {
+
+        if (
+            e.target.id !==
+            "searchBox"
+        ) {
+            return;
+        }
+
+        const text =
+            e.target.value
+                .toLowerCase();
+
+        const filtered =
+            allIncidents.filter(i => {
+
+                const f =
+                    i.fields;
+
+                return JSON.stringify(f)
+                    .toLowerCase()
+                    .includes(text);
+            });
+
+        renderIncidents(
+            filtered
+        );
+    }
+);
+
+/* SORT */
 
 document
     .getElementById("sortBy")
@@ -205,64 +240,25 @@ document
         }
     );
 
-document.addEventListener(
-    "input",
-    function (e) {
-
-        if (
-            e.target.id !==
-            "searchBox"
-        ) {
-            return;
-        }
-
-        const text =
-            e.target.value
-                .toLowerCase();
-
-        const filtered =
-            allIncidents.filter(i => {
-
-                const f =
-                    i.fields;
-
-                return JSON.stringify(f)
-                    .toLowerCase()
-                    .includes(text);
-            });
-
-        renderIncidents(
-            filtered
-        );
-    }
-);
-
-
-/* Search */
-
-document.addEventListener(
-    "input",
-    function (e) {
-
-        ...
-    }
-);
-
-/* Row selection */
+/* ROW SELECTION */
 
 document.addEventListener(
     "click",
     function (e) {
 
         const row =
-            e.target.closest(".incident-row");
+            e.target.closest(
+                ".incident-row"
+            );
 
         if (!row) {
             return;
         }
 
         document
-            .querySelectorAll(".incident-row")
+            .querySelectorAll(
+                ".incident-row"
+            )
             .forEach(r =>
                 r.classList.remove(
                     "active"
