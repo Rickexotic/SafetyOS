@@ -2,27 +2,20 @@ window.addEventListener(
     "load",
     async () => {
 
-        try {
+        await msalInstance.initialize();
 
-            await msalInstance.initialize();
+        const accounts =
+            msalInstance.getAllAccounts();
 
-            const accounts =
-                msalInstance.getAllAccounts();
+        if (accounts.length > 0) {
 
-            if (accounts.length > 0) {
+            activeAccount =
+                accounts[0];
 
-                activeAccount =
-                    accounts[0];
-
-                await loadProfilePhoto();
-            }
-
-            await loadDashboard();
-
-        } catch (error) {
-
-            console.error(error);
+            await loadProfilePhoto();
         }
+
+        await loadDashboard();
     }
 );
 
@@ -57,54 +50,39 @@ async function loadDashboard() {
     buildTopSites(incidents);
 }
 
-function buildKPIs(
-    incidents
-) {
+function buildKPIs(incidents) {
 
-    document.getElementById(
-        "kpiTotal"
-    ).innerText =
+    document.getElementById("kpiTotal").innerText =
         incidents.length;
 
-    document.getElementById(
-        "kpiCritical"
-    ).innerText =
+    document.getElementById("kpiCritical").innerText =
         incidents.filter(
             i =>
-                i.fields.Severity ===
-                "Critical"
+                i.fields.Severity === "Critical"
         ).length;
 
-    document.getElementById(
-        "kpiClosed"
-    ).innerText =
+    document.getElementById("kpiClosed").innerText =
         incidents.filter(
             i =>
-                i.fields.Status ===
-                "Closed"
+                i.fields.Status === "Closed"
         ).length;
 
-    document.getElementById(
-        "kpiOpen"
-    ).innerText =
+    document.getElementById("kpiOpen").innerText =
         incidents.filter(
             i =>
-                i.fields.Status !==
-                "Closed"
+                i.fields.Status !== "Closed"
         ).length;
 }
 
-function buildRiskRadar(
-    incidents
-){
+function buildRiskRadar(incidents) {
 
     const categories = {
 
-        Injury:0,
-        Environmental:0,
-        Vehicle:0,
-        Property:0,
-        Unsafe:0
+        Injury: 0,
+        Environmental: 0,
+        Vehicle: 0,
+        Property: 0,
+        Unsafe: 0
 
     };
 
@@ -113,47 +91,38 @@ function buildRiskRadar(
         const type =
             i.fields.IncidentType || "";
 
-        if(type.includes("Injury"))
+        if (type.includes("Injury"))
             categories.Injury++;
 
-        if(type.includes("Environmental"))
+        if (type.includes("Environmental"))
             categories.Environmental++;
 
-        if(type.includes("Vehicle"))
+        if (type.includes("Vehicle"))
             categories.Vehicle++;
 
-        if(type.includes("Property"))
+        if (type.includes("Property"))
             categories.Property++;
 
-        if(type.includes("Unsafe"))
+        if (type.includes("Unsafe"))
             categories.Unsafe++;
     });
 
     new Chart(
-
-        document.getElementById(
-            "riskRadar"
-        ),
-
+        document.getElementById("riskRadar"),
         {
+            type: "radar",
 
-            type:"radar",
-
-            data:{
+            data: {
 
                 labels:
-                    Object.keys(
-                        categories
-                    ),
+                    Object.keys(categories),
 
-                datasets:[{
+                datasets: [{
 
                     data:
-                        Object.values(
-                            categories
-                        ),
+                        Object.values(categories),
 
-                    borderColor:"#60a5fa",
+                    borderColor: "#60a5fa",
 
                     backgroundColor:
                         "rgba(96,165,250,.20)",
@@ -164,28 +133,30 @@ function buildRiskRadar(
                 }]
             },
 
-            options:{
+            options: {
 
-                plugins:{
-                    legend:{
-                        display:false
+                plugins: {
+
+                    legend: {
+                        display: false
                     }
                 },
 
-                scales:{
-                    r:{
+                scales: {
 
-                        grid:{
+                    r: {
+
+                        grid: {
                             color:
                                 "rgba(255,255,255,.08)"
                         },
 
-                        pointLabels:{
-                            color:"#cbd5e1"
+                        pointLabels: {
+                            color: "#cbd5e1"
                         },
 
-                        ticks:{
-                            display:false
+                        ticks: {
+                            display: false
                         }
                     }
                 }
@@ -194,16 +165,14 @@ function buildRiskRadar(
     );
 }
 
-function buildSeverityChart(
-    incidents
-){
+function buildSeverityChart(incidents) {
 
     const counts = {
 
-        Low:0,
-        Medium:0,
-        High:0,
-        Critical:0
+        Low: 0,
+        Medium: 0,
+        High: 0,
+        Critical: 0
 
     };
 
@@ -212,33 +181,30 @@ function buildSeverityChart(
         const sev =
             i.fields.Severity;
 
-        if(counts[sev] !== undefined){
+        if (counts[sev] !== undefined) {
 
             counts[sev]++;
         }
+
     });
 
     new Chart(
-
-        document.getElementById(
-            "severityChart"
-        ),
-
+        document.getElementById("severityChart"),
         {
 
-            type:"doughnut",
+            type: "doughnut",
 
-            data:{
+            data: {
 
                 labels:
                     Object.keys(counts),
 
-                datasets:[{
+                datasets: [{
 
                     data:
                         Object.values(counts),
 
-                    backgroundColor:[
+                    backgroundColor: [
 
                         "#22c55e",
                         "#eab308",
@@ -247,18 +213,18 @@ function buildSeverityChart(
 
                     ],
 
-                    borderWidth:0
+                    borderWidth: 0
                 }]
             },
 
-            options:{
+            options: {
 
-                plugins:{
+                plugins: {
 
-                    legend:{
+                    legend: {
 
-                        labels:{
-                            color:"#cbd5e1"
+                        labels: {
+                            color: "#cbd5e1"
                         }
                     }
                 }
@@ -267,9 +233,7 @@ function buildSeverityChart(
     );
 }
 
-function buildTopSites(
-    incidents
-){
+function buildTopSites(incidents) {
 
     const sites = {};
 
@@ -285,9 +249,10 @@ function buildTopSites(
     const topSites =
         Object.entries(sites)
             .sort(
-                (a,b)=> b[1]-a[1]
+                (a, b) =>
+                    b[1] - a[1]
             )
-            .slice(0,5);
+            .slice(0, 5);
 
     const container =
         document.getElementById(
@@ -297,7 +262,7 @@ function buildTopSites(
     container.innerHTML = "";
 
     topSites.forEach(
-        ([site,count]) => {
+        ([site, count]) => {
 
             container.innerHTML += `
 
