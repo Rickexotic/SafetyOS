@@ -22,129 +22,102 @@
     <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.28.0/lib/msal-browser.min.js"></script>
 
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 <body>
 
-<div class="container mt-3">
+    
+<div class="card-body">
 
-    <div class="card">
+    <div class="dashboard-grid">
 
-        <div class="card-header">
+        <div class="kpi-card">
 
-            <div class="header-content">
+            <div class="kpi-label">
+                Total Incidents
+            </div>
 
-                <div>
-
-                    <h2>SafetyOS</h2>
-
-                    <small>
-                        Dashboard
-                    </small>
-
-                </div>
-
-                <div id="profileContainer">
-
-                    <img
-                        id="profilePhoto"
-                        class="profile-photo d-none">
-
-                    <div
-                        id="profileInitials"
-                        class="profile-initials">
-
-                        RH
-
-                    </div>
-
-                </div>
-
+            <div id="kpiTotal"
+                 class="kpi-value">
+                -
             </div>
 
         </div>
 
-        <div class="card-body">
+        <div class="kpi-card">
 
-            <div class="dashboard-grid">
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Total
-                    </div>
-
-                    <div id="kpiTotal"
-                         class="kpi-value">
-
-                        -
-                    </div>
-
-                </div>
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Open
-                    </div>
-
-                    <div id="kpiOpen"
-                         class="kpi-value">
-
-                        -
-                    </div>
-
-                </div>
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Critical
-                    </div>
-
-                    <div id="kpiCritical"
-                         class="kpi-value">
-
-                        -
-                    </div>
-
-                </div>
-
-                <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Closed
-                    </div>
-
-                    <div id="kpiClosed"
-                         class="kpi-value">
-
-                        -
-                    </div>
-
-                </div>
-
+            <div class="kpi-label">
+                Open Cases
             </div>
 
-            <div class="section-title">
-                Severity
+            <div id="kpiOpen"
+                 class="kpi-value">
+                -
             </div>
 
-            <div id="severitySummary">
+        </div>
+
+        <div class="kpi-card">
+
+            <div class="kpi-label">
+                Critical
             </div>
 
-            <div class="section-title mt-3">
-                Top Sites
+            <div id="kpiCritical"
+                 class="kpi-value">
+                -
             </div>
 
-            <div id="siteSummary">
+        </div>
+
+        <div class="kpi-card">
+
+            <div class="kpi-label">
+                Closed
+            </div>
+
+            <div id="kpiClosed"
+                 class="kpi-value">
+                -
             </div>
 
         </div>
 
     </div>
 
-</div>
+    <div class="dashboard-chart-card">
 
+        <div class="section-title">
+            Risk Profile
+        </div>
+
+        <canvas id="riskRadar"></canvas>
+
+    </div>
+
+    <div class="dashboard-chart-card">
+
+        <div class="section-title">
+            Severity Distribution
+        </div>
+
+        <canvas id="severityChart"></canvas>
+
+    </div>
+
+    <div class="dashboard-chart-card">
+
+        <div class="section-title">
+            Top Sites
+        </div>
+
+        <div id="siteSummary">
+        </div>
+
+    </div>
+
+</div>
+                     
 <nav class="bottom-nav">
 
     <!-- Dashboard -->
