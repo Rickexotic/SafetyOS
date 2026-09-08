@@ -924,3 +924,51 @@ body {
 
     font-weight:600;
 }
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+}
+
+.kpi-card{
+
+    background:#162033;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    text-align:center;
+}
+
+.kpi-label{
+
+    color:#94a3b8;
+
+    font-size:.7rem;
+}
+
+.kpi-value{
+
+    font-size:1.6rem;
+
+    font-weight:700;
+
+    color:white;
+}
+
+.section-title{
+
+    color:#cbd5e1;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+    margin-top:15px;
+}
