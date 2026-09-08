@@ -976,3 +976,86 @@ hr{
         font-size:1.5rem;
     }
 }
+
+.settings-grid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.settings-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--card-light),
+            var(--card-highlight)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.settings-card:hover{
+
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 0 12px rgba(96,165,250,.15);
+}
+
+.settings-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.settings-icon svg{
+
+    color:var(--primary);
+
+    filter:
+        drop-shadow(
+            0 0 6px rgba(96,165,250,.25)
+        );
+}
+
+.settings-title{
+
+    color:white;
+
+    font-weight:600;
+
+    font-size:.82rem;
+}
+
+.settings-description{
+
+    color:#cbd5e1;
+
+    font-size:.72rem;
+}
