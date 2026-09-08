@@ -1000,49 +1000,52 @@ hr{
     background:
         linear-gradient(
             135deg,
-            #243755,
-            #31456a
+            #1b2940,
+            #22314a
         );
 
     border:
-        1px solid rgba(255,255,255,.06);
+        1px solid rgba(96,165,250,.08);
 
-    border-radius:20px;
+    border-radius:18px;
 
-    padding:20px;
+    padding:18px;
 
-    min-height:180px;
+    min-height:170px;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
     justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
     transition:.25s;
 
-    position:relative;
-
     overflow:hidden;
+
+    position:relative;
 }
 
 .settings-card:hover{
 
     transform:translateY(-2px);
 
+    border:
+        1px solid rgba(96,165,250,.20);
+
     box-shadow:
-        0 0 20px rgba(96,165,250,.20);
+        0 0 20px rgba(96,165,250,.12);
 }
 
 .settings-icon{
 
-    width:70px;
+    width:64px;
 
-    height:70px;
+    height:64px;
 
     border-radius:50%;
 
@@ -1052,16 +1055,16 @@ hr{
 
     align-items:center;
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 
     background:
         radial-gradient(
-            rgba(96,165,250,.35),
-            rgba(96,165,250,.10)
+            rgba(96,165,250,.22),
+            rgba(96,165,250,.05)
         );
 
     box-shadow:
-        0 0 20px rgba(96,165,250,.25);
+        0 0 18px rgba(96,165,250,.12);
 }
 
 
@@ -1084,14 +1087,7 @@ hr{
 
     font-weight:600;
 
-    margin-bottom:10px;
-}
-
-.settings-description{
-
-    color:#cbd5e1;
-
-    font-size:.72rem;
+    margin-bottom:2px;
 }
 
 .stats-card{
@@ -1105,31 +1101,25 @@ hr{
     justify-content:center;
 }
 
-.settings-title{
-
-    color:white;
-
-    font-size:.80rem;
-
-    font-weight:600;
-
-    margin-top:8px;
-}
 
 .settings-value{
 
-    color:white;
+    color:#ffffff;
 
-    font-size:1.8rem;
+    font-size:2rem;
 
     font-weight:700;
+
+    line-height:1;
+
+    margin-top:12px;
 }
 
 .settings-description{
 
-    color:#cbd5e1;
+    color:#94a3b8;
 
-    font-size:.70rem;
+    font-size:.72rem;
 
-    margin-top:4px;
+    margin-top:6px;
 }
