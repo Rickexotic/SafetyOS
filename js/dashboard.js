@@ -64,8 +64,9 @@ async function loadDashboard() {
             data.value || [];
 
         buildKPIs(incidents);
-        buildSeveritySummary(incidents);
-        buildSiteSummary(incidents);
+        buildRiskRadar(incidents);
+        buildSeverityChart(incidents);
+        buildTopSites(incidents);
 
         showLoadingState(false);
     } catch (error) {
