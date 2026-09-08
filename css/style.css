@@ -939,6 +939,9 @@ body {
 
     background:#162033;
 
+    border:
+        1px solid rgba(255,255,255,.06);
+
     border-radius:12px;
 
     padding:12px;
@@ -950,25 +953,43 @@ body {
 
     color:#94a3b8;
 
-    font-size:.7rem;
+    font-size:.75rem;
+
+    font-weight:500;
 }
 
 .kpi-value{
 
-    font-size:1.6rem;
+    color:#f8fafc;
+
+    font-size:1.8rem;
 
     font-weight:700;
 
-    color:white;
+    line-height:1.1;
 }
-
 .section-title{
 
-    color:#cbd5e1;
+    color:#e2e8f0;
 
-    font-size:.8rem;
+    font-size:.85rem;
 
     font-weight:600;
 
-    margin-top:15px;
+    margin-top:16px;
+
+    margin-bottom:8px;
+}
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
 }
