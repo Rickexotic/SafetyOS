@@ -16,7 +16,9 @@
     <link rel="stylesheet"
           href="./css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.28.0/lib/msal-browser.minnet/npm/chart.jsscript>
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@3.28.0/lib/msal-browser.min.js"></script>
+
+  ript>
 
 </head>
 
@@ -44,7 +46,8 @@
 
                     <img
                         id="profilePhoto"
-                        class="profile-photo d-none">
+                        class="profile-photo d-none"
+                        alt="Profile">
 
                     <div
                         id="profileInitials"
@@ -62,61 +65,33 @@
 
         <div class="card-body">
 
+            <!-- KPI -->
+
             <div class="dashboard-grid">
 
                 <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Total Incidents
-                    </div>
-
-                    <div id="kpiTotal"
-                         class="kpi-value">
-                        -
-                    </div>
-
+                    <div class="kpi-label">Total</div>
+                    <div id="kpiTotal" class="kpi-value">-</div>
                 </div>
 
                 <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Open Cases
-                    </div>
-
-                    <div id="kpiOpen"
-                         class="kpi-value">
-                        -
-                    </div>
-
+                    <div class="kpi-label">Open</div>
+                    <div id="kpiOpen" class="kpi-value">-</div>
                 </div>
 
                 <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Critical
-                    </div>
-
-                    <div id="kpiCritical"
-                         class="kpi-value">
-                        -
-                    </div>
-
+                    <div class="kpi-label">Critical</div>
+                    <div id="kpiCritical" class="kpi-value">-</div>
                 </div>
 
                 <div class="kpi-card">
-
-                    <div class="kpi-label">
-                        Closed
-                    </div>
-
-                    <div id="kpiClosed"
-                         class="kpi-value">
-                        -
-                    </div>
-
+                    <div class="kpi-label">Closed</div>
+                    <div id="kpiClosed" class="kpi-value">-</div>
                 </div>
 
             </div>
+
+            <!-- RADAR -->
 
             <div class="dashboard-chart-card">
 
@@ -128,10 +103,92 @@
 
             </div>
 
+            <!-- DONUT -->
+
             <div class="dashboard-chart-card">
 
                 <div class="section-title">
                     Severity Distribution
                 </div>
 
-                <canvas id="severityChart"></
+                <canvas id="severityChart"></canvas>
+
+            </div>
+
+            <!-- TOP SITES -->
+
+            <div class="dashboard-chart-card">
+
+                <div class="section-title">
+                    Top Sites
+                </div>
+
+                <div id="siteSummary"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<nav class="bottom-nav">
+
+    <a href="dashboard.html"
+       class="nav-item active">
+
+        <div class="nav-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="18"
+                 height="18"
+                 fill="currentColor"
+                 viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+            </svg>
+        </div>
+
+    </a>
+
+    <a href="history.html"
+       class="nav-item">
+
+        <div class="nav-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="18"
+                 height="18"
+                 fill="currentColor"
+                 viewBox="0 0 16 16">
+                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+                <path d="M5.5 9a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5z"/>
+            </svg>
+        </div>
+
+    </a>
+
+    report.html
+
+        <div class="nav-icon">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="18"
+                 height="18"
+                 fill="currentColor"
+                 viewBox="0 0 16 16">
+                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5"/>
+                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5z"/>
+            </svg>
+        </div>
+
+    </a>
+
+</nav>
+
+./js/config.jsscript>
+./js/auth.jsscript>
+./js/dashboard.jsscript>
+./js/navigation.jsscript>
+
+</body>
+</html>
