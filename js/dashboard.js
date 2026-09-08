@@ -30,10 +30,7 @@ async function loadDashboard() {
             await getAccessToken();
 
         const response =
-            console.log(
-    "Dashboard response status:",
-    response.status
-);
+           
     await fetch(
         `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items?expand=fields`,
                 {
@@ -43,7 +40,11 @@ async function loadDashboard() {
                     }
                 }
             );
-
+        console.log(
+            "Dashboard response status:",
+            response.status
+            );
+        
         if (!response.ok) {
             throw new Error(`API error: ${response.status} ${response.statusText}`);
         }
