@@ -89,25 +89,31 @@ body{
     background:
         linear-gradient(
             135deg,
-            #2563eb 0%,
-            #1e40af 100%
+            #101827,
+            #172235
         );
 
+    padding:10px 14px;
+
+    border-top:
+        2px solid #3b82f6;
+
     border-bottom:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.06);
 }
+
 .card-header h2{
 
     font-size:1.25rem;
 
-    color:white;
+    color:#e2e8f0;
 
-    font-weight:700;
+    font-weight:600;
 }
 
 .card-header small{
 
-    color:#dbeafe;
+    color:#94a3b8;
 
     font-size:.72rem;
 }
