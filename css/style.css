@@ -736,13 +736,14 @@ hr{
 
 .incident-status{
 
-    color:var(--text-secondary);
+   color:var(--text);
 
     font-size:.65rem;
 }
 
 .incident-severity{
-
+   
+   color:var(--text);
     font-size:.65rem;
 
     font-weight:600;
@@ -750,7 +751,7 @@ hr{
 
 .incident-id{
 
-    color:#e2e8f0;
+    color:var(--text);
 
     font-size:.68rem;
 
@@ -759,14 +760,14 @@ hr{
 
 .incident-type{
 
-    color:white;
+   color:var(--text);
 
     font-size:.72rem;
 }
 
 .incident-site{
 
-    color:var(--text-secondary);
+    color:var(--text);
 
     font-size:.68rem;
 }
