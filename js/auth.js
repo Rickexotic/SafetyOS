@@ -28,6 +28,8 @@ async function signIn() {
         activeAccount =
             loginResponse.account;
 
+        await loadProfilePhoto();
+
         sessionStorage.setItem(
     "SafetyOSUser",
     activeAccount.username
@@ -110,6 +112,74 @@ async function loadProfilePhoto() {
             );
 
         if (!response.ok) {
+
+            console.log(
+                "No photo available"
+            );
+
+            return;
+        }
+
+        const blob =
+            await response.blob();
+
+        const imageUrl =
+            URL.createObjectURL(blob);
+
+        const profilePhoto =
+            document.getElementById(
+                "profilePhoto"
+            );
+
+        const profileInitials =
+            document.getElementById(
+                "profileInitials"
+            );
+
+        if (profilePhoto) {
+
+            profilePhoto.src =
+                imageUrl;
+
+            profilePhoto.classList.remove(
+                "d-none"
+            );
+        }
+
+        if (profileInitials) {
+
+            profileInitials.style.display =
+                "none";
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Profile photo not available",
+            error
+        );
+    }
+}
+
+async function loadProfilePhoto() {
+
+    try {
+
+        const token =
+            await getAccessToken();
+
+        const response =
+            await fetch(
+                "https://graph.microsoft.com/v1.0/me/photo/$value",
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+        if (!response.ok) {
             return;
         }
 
@@ -169,6 +239,8 @@ window.addEventListener(
 
                 activeAccount =
                     accounts[0];
+
+                await loadProfilePhoto();
 
                 const userInfo =
                     document.getElementById(
