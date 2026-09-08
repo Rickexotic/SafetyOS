@@ -70,6 +70,12 @@ async function loadIncidents() {
 function renderIncidents(
     incidents
 ) {
+    const severityClassMap = {
+        low: "severity-low",
+        medium: "severity-medium",
+        high: "severity-high",
+        critical: "severity-critical"
+    };
 
     const container =
         document.getElementById(
@@ -83,11 +89,15 @@ function renderIncidents(
         const f =
             item.fields;
 
+        const severityRaw = (f.Severity || "").trim();
+        const severityKey = severityRaw.toLowerCase();
+        const severityClass = severityClassMap[severityKey] || "";
+
         const photoLink =
             f.PhotoLink || "";
 
-       const linkIcon = photoLink
-    ? `
+        const linkIcon = photoLink
+            ? `
         <a href="${photoLink}"
            class="incident-link"
            target="_blank"
@@ -103,22 +113,24 @@ function renderIncidents(
             </svg>
         </a>
       `
-    : "";
-        
-container.innerHTML += `
-  <div class="incident-row">
-    <div class="incident-grid">
-      <div class="cell status">${f.Status || ""}</div>
-      <div class="cell id">${f.IncidentID || ""}</div>
-      <div class="cell link">${linkIcon}</div>
+            : "";
 
-      <div class="cell severity">${f.Severity || ""}</div>
-      <div class="cell type">${f.IncidentType || ""}</div>
-      <div class="cell site">${f.Site || ""}</div>
+        container.innerHTML += `
+  <div class="incident-row">
+    <div class="incident-top">
+      <div class="incident-status">${f.Status || ""}</div>
+      <div class="incident-id">${f.IncidentID || ""}</div>
+    </div>
+    <div class="incident-bottom">
+      <div class="incident-severity ${severityClass}">${severityRaw}</div>
+      <div class="incident-type">${f.IncidentType || ""}</div>
+      <div class="incident-site">${f.Site || ""}</div>
+      <div class="incident-link-wrap">
+        ${linkIcon}
+      </div>
     </div>
   </div>
 `;
-        
     });
 }
 
@@ -245,60 +257,3 @@ document.addEventListener(
         );
     }
 );
-
-document
-    .getElementById("sortBy")
-    ?.addEventListener(
-        "change",
-        function(){
-
-            const value =
-                this.value;
-
-            const sorted =
-                [...allIncidents];
-
-            if(value === "site"){
-
-                sorted.sort(
-                    (a,b)=>
-                        (a.fields.Site || "")
-                        .localeCompare(
-                            b.fields.Site || ""
-                        )
-                );
-            }
-
-            if(value === "status"){
-
-                sorted.sort(
-                    (a,b)=>
-                        (a.fields.Status || "")
-                        .localeCompare(
-                            b.fields.Status || ""
-                        )
-                );
-            }
-
-            if(value === "severity"){
-
-                const rank = {
-                    Low:1,
-                    Medium:2,
-                    High:3,
-                    Critical:4
-                };
-
-                sorted.sort(
-                    (a,b)=>
-                        (rank[b.fields.Severity] || 0)
-                        -
-                        (rank[a.fields.Severity] || 0)
-                );
-            }
-
-            renderIncidents(
-                sorted
-            );
-        }
-    );
