@@ -11,7 +11,7 @@ window.addEventListener(
                 activeAccount =
                     accounts[0];
 
-                await loadProfilePhoto();
+         //       await loadProfilePhoto();
             }
 
             await loadDashboard();
@@ -30,8 +30,12 @@ async function loadDashboard() {
             await getAccessToken();
 
         const response =
-            await fetch(
-                `https://graph.microsoft.com/v1.0/sites/${CONFIG.siteId}/lists/${CONFIG.incidentsListId}/items?expand=fields`,
+            console.log(
+    "Dashboard response status:",
+    response.status
+);
+    await fetch(
+        `https://graph.microsoft.com/v1.0/sites/46y2.sharepoint.com:/sites/SaaS_OHS:/lists/${CONFIG.incidentsListId}/items?expand=fields`,
                 {
                     headers: {
                         Authorization:
@@ -46,6 +50,10 @@ async function loadDashboard() {
 
         const data =
             await response.json();
+        console.log(
+    "Dashboard data:",
+    data
+);
 
         if (!data.value) {
             throw new Error('Invalid API response format');
