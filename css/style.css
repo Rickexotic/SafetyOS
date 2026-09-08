@@ -773,18 +773,25 @@ hr{
 }
 
 .incident-link{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
+    width:18px;
+    height:18px;
+    margin-left:auto;
     color:var(--primary);
 }
 
-.incident-link:hover{
+.incident-link-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:18px;
+    height:18px;
+    margin-left:auto;
+}
 
+.incident-link:hover{
     color:white;
 }
 
