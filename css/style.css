@@ -992,60 +992,95 @@ hr{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:10px;
+    gap:14px;
 }
 
 .settings-card{
 
-    background:
-        linear-gradient(
-            135deg,
-            #1b2940,
-            #22314a
-        );
+    position:relative;
 
-    border:
-        1px solid rgba(96,165,250,.08);
+    overflow:hidden;
 
-    border-radius:18px;
+    min-height:180px;
 
-    padding:18px;
+    padding:20px;
 
-    min-height:170px;
+    border-radius:22px;
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:center;
-
     align-items:center;
+
+    justify-content:center;
 
     text-align:center;
 
+    cursor:pointer;
+
     transition:.25s;
 
-    overflow:hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(36,55,85,.65),
+            rgba(49,69,106,.55)
+        );
 
-    position:relative;
+    backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+}
+
+.settings-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-30px;
+
+    left:-30px;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(96,165,250,.18),
+            rgba(96,165,250,0)
+        );
+
+    pointer-events:none;
 }
 
 .settings-card:hover{
 
-    transform:translateY(-2px);
+    transform:
+        translateY(-3px);
 
     border:
         1px solid rgba(96,165,250,.20);
 
     box-shadow:
-        0 0 20px rgba(96,165,250,.12);
+        0 0 18px rgba(96,165,250,.15),
+        0 18px 40px rgba(0,0,0,.35);
 }
 
 .settings-icon{
 
-    width:64px;
+    width:70px;
 
-    height:64px;
+    height:70px;
 
     border-radius:50%;
 
@@ -1055,39 +1090,41 @@ hr{
 
     align-items:center;
 
-    margin-bottom:12px;
-
     background:
         radial-gradient(
-            rgba(96,165,250,.22),
+            rgba(96,165,250,.25),
             rgba(96,165,250,.05)
         );
 
     box-shadow:
-        0 0 18px rgba(96,165,250,.12);
-}
+        0 0 25px rgba(96,165,250,.12);
 
+    margin-bottom:15px;
+}
 
 .settings-icon svg{
 
-    color:var(--primary);
-    width:30px;
-    height:30px;
+    width:28px;
+
+    height:28px;
+
+    color:#93c5fd;
 
     filter:
-        drop-shadow(0 0 6px rgba(96,165,250,.55))
-        drop-shadow(0 0 12px rgba(96,165,250,.30));
+        drop-shadow(
+            0 0 8px rgba(96,165,250,.30)
+        );
 }
 
 .settings-title{
 
-    color:white;
-
-    font-size:.85rem;
+    font-size:.9rem;
 
     font-weight:600;
 
-    margin-bottom:2px;
+    color:white;
+
+    margin-top:4px;
 }
 
 .stats-card{
@@ -1104,15 +1141,15 @@ hr{
 
 .settings-value{
 
-    color:#ffffff;
-
     font-size:2rem;
 
     font-weight:700;
 
     line-height:1;
 
-    margin-top:12px;
+    color:white;
+
+    margin-top:10px;
 }
 
 .settings-description{
