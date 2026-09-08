@@ -1030,9 +1030,9 @@ hr{
 
 .settings-icon{
 
-    width:40px;
+    width:30px;
 
-    height:40px;
+    height:30px;
 
     display:flex;
 
@@ -1046,8 +1046,8 @@ hr{
 .settings-icon svg{
 
     color:var(--primary);
-    width:40px;
-    height:40px;
+    width:30px;
+    height:30px;
 
     filter:
         drop-shadow(0 0 6px rgba(96,165,250,.55))
